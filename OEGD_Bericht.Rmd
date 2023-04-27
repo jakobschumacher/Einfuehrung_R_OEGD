@@ -1,0 +1,54 @@
+---
+title: "ÖGD Bericht "
+output: html_document
+date: "2023-04-27"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Einleitung
+
+
+```{r}
+library(tidyverse)
+library(rio)
+
+
+```
+
+
+```{r}
+# -------------------------------
+# Daten einlesen
+# -------------------------------
+data <- rio::import("Tabelle _D6GD.csv",  encoding  = "UTF-8", dec=',')
+# Hier nutzen wir das Paket rio und im Paket "rio" die Funktion "import". Die Funktion versucht mit sinnvollen Defaults den Datensatz zu lesen. Wenn dieses scheitert siehe die Funktion [read_csv des Packages tidyverse ](https://readr.tidyverse.org/reference/read_delim.html). Zusammenfassung für [Import Export im Epi R Handbook](https://epirhandbook.com/en/import-and-export.html)
+# Die eingelesenen Daten werden mit "<-" der Variable data zugeordnet
+# Um Umlaute einzulesen muss der Funktion mitgeteilt werden, dass es sich um UTF-8 kodierte Daten handelt. Dies macht man mit dem Argument encoding = "UTF-8". Das Argument muss mit Komma getrennt werden.
+guess_encoding("Tabelle _D6GD.csv")
+# Zusätzlich müssen wir der Funktion mitteilen, dass wir als dezimaltrenner "," statt "." haben.
+
+# -------------------------------
+# Daten anschauen
+# -------------------------------
+str(data)
+# Mit str kann mann sich Daten in der Konsole anschauen
+View(data)
+# Mit View kann man sich die Daten direkt excel-ähnlich anschauen
+
+
+# -------------------------------
+# Daten transformieren
+# -------------------------------
+data2 <- data %>% 
+  
+
+
+
+
+```
+
+
