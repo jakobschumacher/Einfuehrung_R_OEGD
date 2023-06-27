@@ -1,3 +1,4 @@
+
 # Über die Fortbildung
 In der Fortbildung lernen Sie die Programmiersprache R und die Entwicklungsumgebung RStudio kennen. Die Fortbildung richtet sich vor allem an Anfänger:innen, es sind keine Vorkenntnisse in R notwendig - Basiskenntnisse der Statistik sind jedoch von Vorteil. Wir empfehlen das Epidemiologist R Handbook, welches als Open Access Publikation online verfügbar ist, anzuschauen.
 
@@ -15,47 +16,28 @@ Vorausgesetzt wird: Ein Laptop auf dem R installiert ist (möglichst >= R versio
 
 ## Montag, 23. Oktober2023
 
-10:00	Begrüßung und Einführung in den Kurs
-	Laura Arnold, Nicole Rosenkötter und Jakob Schumacher
-10:15	Showcase: Vom R-Script zum Kurzbericht
-	Jakob Schumacher
+* 10:00	Begrüßung und Einführung in den Kurs
+* 10:15	Showcase: Vom R-Script zum Kurzbericht
+* 10:45	Installation und Kennenlernen von RStudio
+* 11:30	Einleitung: Variablentypen und einfache Operationen
+* 12:30	Mittagspause
+* 13:30	Einleitung: R-Packages Tidyverse, inkl. ggplot
+* 14:30	PRAXIS Auf dem Weg zu einem Kurzbericht: Daten einlesen und transformieren
+* 16:15	Pause
+* 16:30	PRAXIS Auf dem Weg zu einem Kurzbericht: Grafiken und Bericht erstellen
 
-10:45	Installation und Kennenlernen von RStudio
-Jakob Schumacher und Florian Beese
-
-11:30	Einleitung: Variablentypen und einfache Operationen
-	Jakob Schumacher
-
-12:30	Mittagspause
-
-13:30	Einleitung: R-Packages Tidyverse, inkl. ggplot
-	Jakob Schumacher
-
-14:30	PRAXIS Auf dem Weg zu einem Kurzbericht: Daten einlesen und transformieren
-Jakob Schumacher und Florian Beese
-
-16:15	Pause
-
-16:30	PRAXIS Auf dem Weg zu einem Kurzbericht: Grafiken und Bericht erstellen
-	Jakob Schumacher und Florian Beese
-Ende des Tagesprogramms ca. 18:00 Uhr
+_Ende des Tagesprogramms ca. 18:00 Uhr_
 
 ## Dienstag, 24. Oktober2023
+* 9:00	TEASER Github
+* 9:45 	TEASER Kartenerstellung
+* 10:45	Pause
+* 11:00	PRAXIS Freies Arbeiten mit R
+* 12:00	Mittagspause
+* 13:00	PRAXIS Freies Arbeiten mit R
+* 15:30	Resümee des Kurses und Abschluss
 
-9:00	TEASER Github
-	Jakob Schumacher 
-9:45 	TEASER Kartenerstellung
-	Jakob Schumacher
-10:45	Pause
-11:00	PRAXIS Freies Arbeiten mit R
-	Jakob Schumacher, Florian Beese, Laura Arnold, Nicole Rosenkötter 
-12:00	Mittagspause
-13:00	PRAXIS Freies Arbeiten mit R
-	Jakob Schumacher, Florian Beese, Laura Arnold, Nicole Rosenkötter
-15:30	Resümee des Kurses und Abschluss
-Laura Arnold, Nicole Rosenkötter und Jakob Schumacher
-
-Ende des Tagesprogramms ca. 16:00 Uhr
+_Ende des Tagesprogramms ca. 16:00 Uhr_
 
 
 

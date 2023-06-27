@@ -7,11 +7,6 @@ date: "2023-04-27"
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = F, error = F, message = F, warning = F)
 
-# Set Variables
-data_url <- "https://raw.githubusercontent.com/robert-koch-institut/COVID-19-Hospitalisierungen_in_Deutschland/master/Aktuell_Deutschland_adjustierte-COVID-19-Hospitalisierungen.csv"
-
-
-
 ```
 
 
@@ -26,26 +21,16 @@ library(tidyverse)
 library(rio)
 ```
 
-# Methoden
-Die Daten wurden heruntergeladen von der Opendata-Webseite des RKI. 
 
-* Datenquelle: `r data_url`
-* Verwendetes Script: `r `
-* Verwendete R-Pakete
-
-Bei den Methoden wurde wie folgt vorgegangen:
-
-1. Daten einlesen
-2. Daten transformieren
-3. Berechnungen anstellen
-4. Grafiken erstellen
 
 ```{r reading_data}
 # -------------------------------
 # Daten einlesen
 # -------------------------------
-data <- import("Aktuell_Deutschland_adjustierte-COVID-19-Hospitalisierungen.csv") 
-# Hier nutzen wir das Paket rio und im Paket "rio" die Funktion "import". Die Funktion versucht mit sinnvollen Defaults den Datensatz zu lesen. Wenn dieses scheitert siehe die Funktion [read_csv des Packages tidyverse ](https://readr.tidyverse.org/reference/read_delim.html). Zusammenfassung für [Import Export im Epi R Handbook](https://epirhandbook.com/en/import-and-export.html)
+data_url <- "https://raw.githubusercontent.com/robert-koch-institut/COVID-19-Hospitalisierungen_in_Deutschland/master/Aktuell_Deutschland_adjustierte-COVID-19-Hospitalisierungen.csv"
+data <- read_csv(data_url)
+
+# Hier nutzen wir die Funktion [read_csv des Packages tidyverse. Die Funktion versucht mit sinnvollen Defaults den Datensatz zu lesen. ](https://readr.tidyverse.org/reference/read_delim.html). Alternativ gibt es im Paket "rio" die Funktion "import". Zusammenfassung für [Import Export im Epi R Handbook](https://epirhandbook.com/en/import-and-export.html)
 # Die eingelesenen Daten werden mit "<-" der Variable data zugeordnet
 # Das Einlesen von Umlaute klappt manchmal nicht. Dann muss der Funktion mitgeteilt werden, dass es sich um UTF-8 kodierte Daten handelt. Dies macht man mit dem Argument encoding = "UTF-8". Das Argument muss mit Komma getrennt werden. Mittels guess_encoding("Dateiname.csv") kann das genaue Encoding herausgefunden werden. 
 # Manchen Funktionen müssen wir zusätzlich mitteilen, dass wir als dezimaltrenner "," statt "." haben.
@@ -71,7 +56,7 @@ bundesland_data <- data %>%
 ```
 
 # Ergebnisse
-Insgesamt gibt es `r nrow(data)` 
+Insgesamt gibt es `r nrow(data)` Datenpunkte. 
 
 
 ```{r abbildung_1, results='asis'}
@@ -80,3 +65,17 @@ ggplot(bundesland_data, aes(x= Datum, y = OG_PI_adjustierte_7T_Hospitalisierung_
 
 ```
 
+
+# Methoden
+Die Daten wurden heruntergeladen von der Opendata-Webseite des RKI. 
+
+* Datenquelle: `r data_url`
+* Verwendetes Script: `r `
+* Verwendete R-Pakete
+
+Bei den Methoden wurde wie folgt vorgegangen:
+
+1. Daten einlesen
+2. Daten transformieren
+3. Berechnungen anstellen
+4. Grafiken erstellen
