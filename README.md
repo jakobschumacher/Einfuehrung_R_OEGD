@@ -1,37 +1,69 @@
+# Über die Fortbildung
+In der Fortbildung lernen Sie die Programmiersprache R und die Entwicklungsumgebung RStudio kennen. Die Fortbildung richtet sich vor allem an Anfänger:innen, es sind keine Vorkenntnisse in R notwendig - Basiskenntnisse der Statistik sind jedoch von Vorteil. Wir empfehlen das Epidemiologist R Handbook, welches als Open Access Publikation online verfügbar ist, anzuschauen.
+
+## Inhalte der Schulung
+In der Fortbildung erhalten Sie neben einer kurzen Einführung in die Grundlagen der Programmierung mit Base R, eine theoretische und praktische Einführung in die moderne Datenanalyse mit Tidyverse: Sie lernen Daten einzulesen, mit tidyr umzustrukturieren und mit dplyr zu verarbeiten und zu aggregieren. Außerdem lernen Sie in Ansätzen ggplot2 Grafiken und die Anwendung von R Markdown kennen. Begleitend erhalten Sie einen Einblick in einfache statistische Auswertungen mit R.
+
+Neben den theoretischen Einblicken, werden wir von Beginn an praktisch arbeiten und Sie erlernen, wie aus einem R-Skript ein Kurzbericht entstehen kann. Am zweiten Tag können Sie das Erlernte mit Ihren eigenen Daten nachvollziehen. Bringen Sie deshalb bitte einen eigenen Datensatz und eine einfache eigene Fragestellung zur Bearbeitung und Auswertung ihrer Daten mit.
+
+
+## Voraussetzungen
+Vorausgesetzt wird: Ein Laptop auf dem R installiert ist (möglichst >= R version 4.1.3) und RStudio (möglichst >= 2022.07.1).
 
 
 # Ablauf der Schulung
 
-## Tag 1
-### Showcase
-10.00 – 10.30 Showcase Ein R Script durchgehen bis zu einem Bericht
-### Installation
-10.30 – 11.00 Rechner starten, Guided Tour durch Rstudio
+## Montag, 23. Oktober2023
 
-Mittagspause
+10:00	Begrüßung und Einführung in den Kurs
+	Laura Arnold, Nicole Rosenkötter und Jakob Schumacher
+10:15	Showcase: Vom R-Script zum Kurzbericht
+	Jakob Schumacher
 
-### Einleitung
-12.00 - 12.30 Block Variablentypen zeigen – selber ausprobieren
-12.30  - 13.00 Block Einfache Operationen
-13.00 – 14.00 Packages Tidyverse und Ggplot
+10:45	Installation und Kennenlernen von RStudio
+Jakob Schumacher und Florian Beese
 
-Pause
+11:30	Einleitung: Variablentypen und einfache Operationen
+	Jakob Schumacher
 
-### Mini-Bericht
-14.30 - 15.00 Daten einlesen INKAR Datenbank, Github RKI, Regionaldatenbank 
-15.00 - 15.30 Daten transformieren 
-15.30 - 16.00 Grafik erstellen
-16.00 - 16.30 Bericht erstellen
+12:30	Mittagspause
+
+13:30	Einleitung: R-Packages Tidyverse, inkl. ggplot
+	Jakob Schumacher
+
+14:30	PRAXIS Auf dem Weg zu einem Kurzbericht: Daten einlesen und transformieren
+Jakob Schumacher und Florian Beese
+
+16:15	Pause
+
+16:30	PRAXIS Auf dem Weg zu einem Kurzbericht: Grafiken und Bericht erstellen
+	Jakob Schumacher und Florian Beese
+Ende des Tagesprogramms ca. 18:00 Uhr
+
+## Dienstag, 24. Oktober2023
+
+9:00	TEASER Github
+	Jakob Schumacher 
+9:45 	TEASER Kartenerstellung
+	Jakob Schumacher
+10:45	Pause
+11:00	PRAXIS Freies Arbeiten mit R
+	Jakob Schumacher, Florian Beese, Laura Arnold, Nicole Rosenkötter 
+12:00	Mittagspause
+13:00	PRAXIS Freies Arbeiten mit R
+	Jakob Schumacher, Florian Beese, Laura Arnold, Nicole Rosenkötter
+15:30	Resümee des Kurses und Abschluss
+Laura Arnold, Nicole Rosenkötter und Jakob Schumacher
+
+Ende des Tagesprogramms ca. 16:00 Uhr
 
 
-## Tag 2
-### Freies Arbeiten
-### Einschub: Github
-### Einschub: Karten
-### Einschub: Webseite mit Quarto 
 
+# Über dieses Repository
+Dieses Repository enthält alle notwendigen Datein für den Kurs
 
-
+* Basis.R ist die Basis-Datei für den Kurs. Am Tag 1 gehen wir dieses Script durch. 
+* OEGD_Bericht.Rmd ist ein Beispielbericht
 
 
 # Datenbereitstellung
