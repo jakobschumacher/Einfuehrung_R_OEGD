@@ -22,9 +22,9 @@ Vorausgesetzt wird: Ein Laptop auf dem R installiert ist (möglichst >= R versio
 * 11:30	Einleitung: Variablentypen und einfache Operationen
 * 12:30	Mittagspause
 * 13:30	Einleitung: R-Packages Tidyverse, inkl. ggplot
-* 14:30	PRAXIS Auf dem Weg zu einem Kurzbericht: Daten einlesen und transformieren
+* 14:30	Auf dem Weg zu einem Kurzbericht: Daten einlesen und transformieren
 * 16:15	Pause
-* 16:30	PRAXIS Auf dem Weg zu einem Kurzbericht: Grafiken und Bericht erstellen
+* 16:30	Auf dem Weg zu einem Kurzbericht: Grafiken und Bericht erstellen
 
 _Ende des Tagesprogramms ca. 18:00 Uhr_
 
@@ -44,10 +44,11 @@ _Ende des Tagesprogramms ca. 16:00 Uhr_
 # Über dieses Repository
 Dieses Repository enthält alle notwendigen Datein für den Kurs
 
-* Basis.R ist die Basis-Datei für den Kurs. Am Tag 1 gehen wir dieses Script durch. 
-* OEGD_Bericht.Rmd ist ein Beispielbericht
+* 01_Sehen_und_Nachmachen.R ist die Basis-Datei für den Kurs. Am Tag 1 gehen wir dieses Script durch. 
+* 02_Showcase_OEGD_Bericht.Rmd ist ein Beispielbericht
+* 03_Showcase_Karte.Rmd ist eine Beispielkarte
 
 
 # Datenbereitstellung
-## Datei Tabelle_D6GD.csv
+## Datei INKAR.csv
 Die Datei stammt aus der [Datenbank INKAR](https://www.inkar.de/). Die Datei wurde von BBSR heruntergeladen. BBSR ist an der Erstellung dieses R-Scriptes nicht beteiligt.
