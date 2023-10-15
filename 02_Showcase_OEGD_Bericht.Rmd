@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = F, error = F, message = F, warning = F)
 
 
 # Einleitung
-Dies ist ein Bericht für den öffentlichen Gesundheitsdienst. Er ist erstellt mit R und RStudio. Inhaltlilch dreht sich der Bericht um  
+Dies ist ein Bericht für den öffentlichen Gesundheitsdienst. Er ist erstellt mit R und RStudio. Inhaltlilch dreht sich der Bericht um COVID-19 Hospitalisierungen 
 
 ```{r loading_packages}
 # -------------------------------

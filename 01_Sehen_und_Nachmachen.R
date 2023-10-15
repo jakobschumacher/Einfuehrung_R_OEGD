@@ -38,19 +38,24 @@
 # Zum Beispiel Wurzel ziehen
 sqrt(49)
 
-
-
-
-# Auch ein Mittelwert z.B.
+# Es ist möglich einen Mittelwert zu berechnen.
 mean(c(3,5,7,23,4))
 
 # R kann auch eine Korrelation durchführen
 cor(c(3,5,6,23,2,4,5), c(2,5,3,2,3,5,9))
 
-
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # R ist eine Programmiersprache ---------------------------------------------
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Programmierung ist eine eigene Welt für sich.
+# Wichtig zum Verständnis:
+# Das Zeichen "#" ist ein Kommentar
+# Das Zeichen "<-" ist eine Zuweisung zu einer Variablen
+# Das Zeichen "%>%" ist ein Pipe-Parameter und verbindet zwei Dinge miteinander
+# Das Zeichen "," ist ein Zeichen, dass etwas anderes anfängt
+# Die Klammern "()" und "{}" werden an allen möglichen Stellen gebraucht
+# Die Zeichenfolge NA steht für etwas nicht vorhandenes
+
 
 # Mit R können Variablen gesetzt werden
 a <- "Hallo"
@@ -62,18 +67,10 @@ c(a,b)
 meinefunktion <- function(x, y){
   x + y
 }
+
 # Ausführen der Funktion
 meinefunktion(4,7)
 
-# Programmierung ist eine eigene Welt für sich.
-# Wichtig zum Verständnis:
-
-# Das Zeichen "#" ist ein Kommentar
-# Das Zeichen "<-" ist eine Zuweisung zu einer Variablen
-# Das Zeichen "%>%" ist ein Pipe-Parameter und verbindet zwei Dinge miteinander
-# Das Zeichen "," ist ein Zeichen, dass etwas anderes anfängt
-# Die Klammern "()" und "{}" werden an allen möglichen Stellen gebraucht
-# Die Zeichenfolge NA steht für etwas nicht vorhandenes
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # R ist nicht Excel ---------------------------------------------
@@ -115,6 +112,18 @@ View(mtcars) # Zur Erläuterung: mtcars ist ein eingebauter Beispiel-Datensatz
 class(2)
 class("Hallo Welt")
 
+# Manche Datenklassen kann man in eine andere umwandeln
+farben <- c("blau", "rot", "grün")
+class(farben)
+farben <- factor(farben)
+class(farben)
+
+# Es gibt Datenklassen für eine Sammlung von Datenpunkten
+# ein data.frame entspricht einen Tabellenblatt bei Excel
+tiertabelle <- data.frame(name = c("Hund", "Schlange", "Giraffe"), hoehe = c(1.1,0.2,9), fell = c("ja", "nein", "ja"))
+
+# Eine Liste ist eine Sammlung von verschiedenen nicht einheitlichen Datenpunkten
+kuenstlicheliste <- list(farben, tiertabelle, c(3,6,1,2,5))
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # R ist eigentlich eine Sammlung von kleinen Programmen---------------------
@@ -127,7 +136,8 @@ class("Hallo Welt")
 # Alle Pakete müssen am Anfang geladen werden.
 # Das geht mit library()
 
-# Das wichtigste Paket für Graphiken heißt ggplot2 mit dem zentralen Befehl ggplot()
+# Das bekannteste Paket für Graphiken heißt ggplot2 mit dem zentralen Befehl ggplot()
+install.packages("ggplot2")
 library(ggplot2)
 
 
@@ -135,3 +145,7 @@ ggplot(mtcars) +
   aes(x = mpg, y = wt) +
   geom_line()
 
+
+# Die bekanntesten Pakete für Datenmanagement heißen tidyr und dplyr, die beide in der Paketsammlung von tidyverse enthalten sind
+install.packages("tidyverse")
+library(tidyverse)
