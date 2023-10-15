@@ -1,8 +1,17 @@
 ---
-title: "ÖGD Bericht "
-output: html_document
+title: "ÖGD Bericht für `r params$bundesland`"
+subtitle: "Datenstand: `r format(Sys.Date(), format = '%A, den %d. %B %Y')`"
+author: "Jakob Schumacher"
+output:
+  html_document: 
+    theme: cosmo 
+  pdf_document: default
 date: "2023-04-27"
+params:
+  bundesland: Hessen
+  datenquelle: "https://raw.githubusercontent.com/robert-koch-institut/COVID-19-Hospitalisierungen_in_Deutschland/master/Aktuell_Deutschland_adjustierte-COVID-19-Hospitalisierungen.csv"
 ---
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = F, error = F, message = F, warning = F)
@@ -11,7 +20,11 @@ knitr::opts_chunk$set(echo = F, error = F, message = F, warning = F)
 
 
 # Einleitung
+<<<<<<< HEAD
 Dies ist ein Bericht für den öffentlichen Gesundheitsdienst. Er ist erstellt mit R und RStudio. Inhaltlilch dreht sich der Bericht um COVID-19 Hospitalisierungen 
+=======
+Dies ist ein Bericht für den öffentlichen Gesundheitsdienst. Er ist erstellt mit R und RStudio. Inhaltlilch dreht sich der Bericht um Covid-19-Hospitalisierungen 
+>>>>>>> a17c35b2cc04f7afc87f4b5ce0288b8a41e6b30f
 
 ```{r loading_packages}
 # -------------------------------
@@ -19,16 +32,29 @@ Dies ist ein Bericht für den öffentlichen Gesundheitsdienst. Er ist erstellt m
 # -------------------------------
 library(tidyverse)
 library(rio)
+library(sf)
+library(osmdata)
 ```
 
+# Methoden
+## Datenquelle
+Die Daten wurden heruntergeladen von der Opendata-Webseite des RKI. 
 
+* Datenquelle: `r params$datenquelle`
+
+## Vorgehensweise
+Bei den Methoden wurde wie folgt vorgegangen:
+
+1. Daten einlesen
+2. Daten transformieren
+3. Berechnungen anstellen
+4. Grafiken erstellen
 
 ```{r reading_data}
 # -------------------------------
 # Daten einlesen
 # -------------------------------
-data_url <- "https://raw.githubusercontent.com/robert-koch-institut/COVID-19-Hospitalisierungen_in_Deutschland/master/Aktuell_Deutschland_adjustierte-COVID-19-Hospitalisierungen.csv"
-data <- read_csv(data_url)
+data <- read_csv(params$datenquelle)
 
 # Hier nutzen wir die Funktion [read_csv des Packages tidyverse. Die Funktion versucht mit sinnvollen Defaults den Datensatz zu lesen. ](https://readr.tidyverse.org/reference/read_delim.html). Alternativ gibt es im Paket "rio" die Funktion "import". Zusammenfassung für [Import Export im Epi R Handbook](https://epirhandbook.com/en/import-and-export.html)
 # Die eingelesenen Daten werden mit "<-" der Variable data zugeordnet
@@ -52,30 +78,64 @@ data <- read_csv(data_url)
 # Daten transformieren
 # -------------------------------
 bundesland_data <- data %>% 
-  filter(Bundesland == "Hessen")
+  filter(Bundesland == params$bundesland)
 ```
 
 # Ergebnisse
 Insgesamt gibt es `r nrow(data)` Datenpunkte. 
 
 
+
+## Inzidenz
 ```{r abbildung_1, results='asis'}
 ggplot(bundesland_data, aes(x= Datum, y = OG_PI_adjustierte_7T_Hospitalisierung_Faelle)) +
-  geom_line()
+  geom_line() +
+  theme_blank()
+
+```
+
+## Karte
+```{r}
+
+# Definieren Sie die Abfrage für OSM, um Daten für Hessen zu erhalten
+query <- opq("Hessen, Germany") %>%
+  add_osm_feature("admin_level", "4", exact = FALSE) %>%
+  add_osm_feature("boundary", "administrative")
+
+# Holen Sie die Polygon-Daten
+hessen_poly <- osmdata_sf(query)
+
+# Zeichnen Sie die Karte
+ggplot() +
+  geom_sf(data = hessen_poly$osm_polygons, fill = "lightblue", color = "black") +
+  ggtitle("Karte von Hessen") +
+  theme_minimal()
+
+
+mannheim <-
+  osmdata::getbb("Mannheim") %>% 
+  osmdata::opq(timeout = 25*100) %>%
+  osmdata::add_osm_feature(
+    key = "admin_level", 
+    value = "6"
+  ) %>% 
+  osmdata::osmdata_sf() %$% 
+  osm_multipolygons %>% 
+  dplyr::filter(name == "Mannheim") %>% # filter on city level
+  dplyr::select(geometry) %>%
+  sf::st_transform(3035) 
+
+mannheim
+
+
+# Wenn Sie einen bestimmten Wert auf der Karte anzeigen möchten, können Sie geom_text verwenden
+# Beispiel: Angenommen, es gibt einen Wert von 100 in Frankfurt
+ggplot(data = hessen) +
+  geom_sf() +
+  geom_text(aes(x = 8.6821, y = 50.1109, label = "100"), size = 5, colour = "red") +
+  ggtitle("Karte von Hessen mit einem Wert in Frankfurt") +
+  theme_minimal()
 
 ```
 
 
-# Methoden
-Die Daten wurden heruntergeladen von der Opendata-Webseite des RKI. 
-
-* Datenquelle: `r data_url`
-* Verwendetes Script: `r `
-* Verwendete R-Pakete
-
-Bei den Methoden wurde wie folgt vorgegangen:
-
-1. Daten einlesen
-2. Daten transformieren
-3. Berechnungen anstellen
-4. Grafiken erstellen
