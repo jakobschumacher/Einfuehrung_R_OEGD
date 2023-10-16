@@ -20,17 +20,14 @@ knitr::opts_chunk$set(echo = F, error = F, message = F, warning = F)
 
 
 # Einleitung
-<<<<<<< HEAD
-Dies ist ein Bericht für den öffentlichen Gesundheitsdienst. Er ist erstellt mit R und RStudio. Inhaltlilch dreht sich der Bericht um COVID-19 Hospitalisierungen 
-=======
 Dies ist ein Bericht für den öffentlichen Gesundheitsdienst. Er ist erstellt mit R und RStudio. Inhaltlilch dreht sich der Bericht um Covid-19-Hospitalisierungen 
->>>>>>> a17c35b2cc04f7afc87f4b5ce0288b8a41e6b30f
 
 ```{r loading_packages}
 # -------------------------------
 # Pakete laden
 # -------------------------------
 library(tidyverse)
+library(ggplot2)
 library(rio)
 library(sf)
 library(osmdata)
@@ -90,7 +87,7 @@ Insgesamt gibt es `r nrow(data)` Datenpunkte.
 ```{r abbildung_1, results='asis'}
 ggplot(bundesland_data, aes(x= Datum, y = OG_PI_adjustierte_7T_Hospitalisierung_Faelle)) +
   geom_line() +
-  theme_blank()
+  theme_classic()
 
 ```
 
