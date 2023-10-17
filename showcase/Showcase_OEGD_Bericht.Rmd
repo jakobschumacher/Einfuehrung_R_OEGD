@@ -3,9 +3,9 @@ title: "ÖGD Bericht für `r params$bundesland`"
 subtitle: "Datenstand: `r format(Sys.Date(), format = '%A, den %d. %B %Y')`"
 author: "Jakob Schumacher"
 output:
+  pdf_document: default
   html_document: 
     theme: cosmo 
-  pdf_document: default
 date: "2023-04-27"
 params:
   bundesland: Hessen
@@ -94,44 +94,44 @@ ggplot(bundesland_data, aes(x= Datum, y = OG_PI_adjustierte_7T_Hospitalisierung_
 ## Karte
 ```{r}
 
-# Definieren Sie die Abfrage für OSM, um Daten für Hessen zu erhalten
-query <- opq("Hessen, Germany") %>%
-  add_osm_feature("admin_level", "4", exact = FALSE) %>%
-  add_osm_feature("boundary", "administrative")
-
-# Holen Sie die Polygon-Daten
-hessen_poly <- osmdata_sf(query)
-
-# Zeichnen Sie die Karte
-ggplot() +
-  geom_sf(data = hessen_poly$osm_polygons, fill = "lightblue", color = "black") +
-  ggtitle("Karte von Hessen") +
-  theme_minimal()
-
-
-mannheim <-
-  osmdata::getbb("Mannheim") %>% 
-  osmdata::opq(timeout = 25*100) %>%
-  osmdata::add_osm_feature(
-    key = "admin_level", 
-    value = "6"
-  ) %>% 
-  osmdata::osmdata_sf() %$% 
-  osm_multipolygons %>% 
-  dplyr::filter(name == "Mannheim") %>% # filter on city level
-  dplyr::select(geometry) %>%
-  sf::st_transform(3035) 
-
-mannheim
-
-
-# Wenn Sie einen bestimmten Wert auf der Karte anzeigen möchten, können Sie geom_text verwenden
-# Beispiel: Angenommen, es gibt einen Wert von 100 in Frankfurt
-ggplot(data = hessen) +
-  geom_sf() +
-  geom_text(aes(x = 8.6821, y = 50.1109, label = "100"), size = 5, colour = "red") +
-  ggtitle("Karte von Hessen mit einem Wert in Frankfurt") +
-  theme_minimal()
+# # Definieren Sie die Abfrage für OSM, um Daten für Hessen zu erhalten
+# query <- opq("Hessen, Germany") %>%
+#   add_osm_feature("admin_level", "4", exact = FALSE) %>%
+#   add_osm_feature("boundary", "administrative")
+# 
+# # Holen Sie die Polygon-Daten
+# hessen_poly <- osmdata_sf(query)
+# 
+# # Zeichnen Sie die Karte
+# ggplot() +
+#   geom_sf(data = hessen_poly$osm_polygons, fill = "lightblue", color = "black") +
+#   ggtitle("Karte von Hessen") +
+#   theme_minimal()
+# 
+# 
+# mannheim <-
+#   osmdata::getbb("Mannheim") %>% 
+#   osmdata::opq(timeout = 25*100) %>%
+#   osmdata::add_osm_feature(
+#     key = "admin_level", 
+#     value = "6"
+#   ) %>% 
+#   osmdata::osmdata_sf() %$% 
+#   osm_multipolygons %>% 
+#   dplyr::filter(name == "Mannheim") %>% # filter on city level
+#   dplyr::select(geometry) %>%
+#   sf::st_transform(3035) 
+# 
+# mannheim
+# 
+# 
+# # Wenn Sie einen bestimmten Wert auf der Karte anzeigen möchten, können Sie geom_text verwenden
+# # Beispiel: Angenommen, es gibt einen Wert von 100 in Frankfurt
+# ggplot(data = hessen) +
+#   geom_sf() +
+#   geom_text(aes(x = 8.6821, y = 50.1109, label = "100"), size = 5, colour = "red") +
+#   ggtitle("Karte von Hessen mit einem Wert in Frankfurt") +
+#   theme_minimal()
 
 ```
 
