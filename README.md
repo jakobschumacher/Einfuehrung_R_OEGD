@@ -2,12 +2,11 @@
 
 
 <div id="header" align="center">
-![](logo.png)
+<img src="logo.png">
+<br>
+<span style="color: gray; font-size: 0.8em;">Jakob Schumacher, Florian Beese, Laura Arnold, Nicole Rosenkötter</span>  
 </div>
 
-# Einführung in die Open-Source-Software R 
-_Autoren: Jakob Schumacher(1), Florian Beese(1), Laura Arnold(2), Nicole Rosenkötter(2)_  
-_Affiliations: (1) Robert Koch-Institut, (2) Akademie für öffentliches Gesundheitswesen_
 
 ## Über die Fortbildung
 In der Fortbildung lernen Sie die Programmiersprache R und die Entwicklungsumgebung RStudio kennen. Die Fortbildung richtet sich vor allem an Anfänger:innen, es sind keine Vorkenntnisse in R notwendig - Basiskenntnisse der Statistik sind jedoch von Vorteil. 
