@@ -1,6 +1,13 @@
 
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Lernziele ------------------------------------------------
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+# In diesem Block erhalten wir eine Einführung in die Vielfältigkeit von R. Zunächst wird dargestellt, wie R als Taschenrechner für einfache bis komplexe mathematische Operationen genutzt werden kann, etwa zum Wurzelziehen oder zur Korrelationsberechnung. Im nächsten Abschnitt wird betont, dass R eine vollwertige Programmiersprache ist, wobei die Bedeutung von speziellen Zeichen wie "#", "<-", und "%>%" erläutert wird. Zudem wird der Umgang mit Variablen und das Erstellen eigener Funktionen vorgestellt. Weiterhin wird verdeutlicht, dass R sich von Programmen wie Excel unterscheidet, da es keine visuellen Zellenbezüge gibt und Daten im Kopf visualisiert werden sollten. Der nächste Teil widmet sich den Datenklassen in R, welche von einfachen Texten und Zahlen bis hin zu komplexen Strukturen wie Datenframes und Listen reichen. Der Umgang mit Datumsangaben in R wird durch verschiedene Methoden zur Erstellung und Formatierung dargestellt. Außerdem wird erläutert, wie in R einzelne Werte, Arrays, Tabellen und Listen gehandhabt werden, einschließlich des Zugriffs auf Teile eines Datenframes. Schließlich zeigt der Block, wie eingebaute Funktionen in R verwendet werden, um Operationen auf numerischen und Datums-Arrays durchzuführen.
+
+
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # 1 R ist ein Taschenrechner ------------------------------------------------
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -41,7 +48,11 @@ b
 # In R können Funktionen erstellt werden
 # Programmierung der Funktion
 meinefunktion <- function(x, y){
-  x + y
+  print("Die Addition ergibt:")
+  print(x + y)
+
+  print("Die Multiplikation ergibt:")
+  print(x * y)
 }
 
 # Ausführen der Funktion
@@ -120,7 +131,7 @@ mein_datum <- as.Date("03.05.2023", format = "%d.%m.%Y")
 class(mein_datum)
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-# 6 Eine Variable kann Einzelwerte, Arrays, ganze Tabellen oder diverse Listen enthalten ---
+# 6 Einzelwerte, Arrays, dataframes  -----
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 # Einzelwert

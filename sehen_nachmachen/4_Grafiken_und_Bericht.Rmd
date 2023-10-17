@@ -4,26 +4,138 @@ output: html_document
 date: "2023-10-16"
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+## 1 Was ist Rmarkdown.
+
+RMarkdown ist ein Dokumentenformat, das es ermöglicht, R-Code und Text in einem einzigen Dokument zu kombinieren. Mit RMarkdown können Nutzer sowohl deskriptive Inhalte und Analysen als auch die zugehörigen Visualisierungen und Ergebnisse in einem kohärenten Bericht zusammenfassen. Das Dokument kann dann in verschiedene Ausgabeformate wie HTML, PDF und Word konvertiert werden. Dies ermöglicht eine reproduzierbare Forschung und Datenanalyse, da sowohl der Code als auch die Ergebnisse im gleichen Dokument gespeichert sind. RMarkdown Dateien erkennt man an der Endung ".Rmd"
+
+
+## 2 Text, Chunk und Inline-Code
+### Was ist ein "Chunk"?
+Ein "Chunk" in RMarkdown bezeichnet einen speziellen Code-Block, der R-Code (oder auch Code anderer unterstützter Sprachen) enthält. Chunks werden im RMarkdown-Dokument durch spezielle Auszeichnungen, typischerweise durch drei Rückwärtsschrägstriche gefolgt von `{r}` am Anfang und drei weitere Rückwärtsschrägstriche am Ende, abgegrenzt. Innerhalb dieser Chunks kann der Nutzer R-Code schreiben, der beim Erstellen des RMarkdown-Dokuments ausgeführt wird. Die Ergebnisse dieser Ausführung, sei es Text, Tabellen oder Grafiken, werden direkt in das resultierende Dokument eingebettet. Zusätzlich können innerhalb der geschweiften Klammern des Chunk-Headers verschiedene Optionen festgelegt werden, um das Verhalten und die Darstellung des Chunks und seiner Ausgabe anzupassen. Ein Chunk kann z.B. mit Strg+Alt+i angelegt werden. 
+
+```{r}
+print(3+6)
 ```
 
-## R Markdown
+### Was ist ein Inline-R-Code
+Ein Inline-Code ist das Einbetten von R-Code direkt in den Fließtext. Statt einen gesamten Code-Block oder "Chunk" zu verwenden, können Sie R-Code-Ausdrücke in den Text integrieren. Beispiel: Der aktuelle Monat ist `r format(Sys.Date(), "%B")`.
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+## 3 Chunk Optionen
+Chunks können durch Optionen gesteuert werden. Beispielsweise bestimmt die Option "echo" ob der R-Code selbst im endgültigen Dokument sichtbar ist (echo=TRUE) oder nicht (echo=FALSE). Mit der Option "eval" kann gesteuert werden, ob der R-Code ausgeführt wird (eval=TRUE) oder nicht (eval=FALSE). Die Option "results" kontrolliert, wie Ergebnisse dargestellt werden, z.B. kann results='hide' verwendet werden, um Ergebnisse zu verbergen. Es gibt noch weitere Optionen, wie z.B. "warning" und "message".
 
-```{r cars}
-summary(cars)
+
+### echo auf FALSE
+```{r echo-Test, echo = FALSE}
+# Da echo auf FALSE gesetzt ist, wird dieser Code nicht im endgültigen Dokument angezeigt.
+print("Hallo Welt!")
 ```
 
-## Including Plots
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+### eval auf FALSE
+```{r eval-Test, eval = FALSE}
+# Da eval auf FALSE gesetzt ist, wird dieser Code nicht ausgeführt und es gibt keine Ausgabe im endgültigen Dokument.
+print("Dies wird nicht gedruckt.")
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+### Warning auf FALSE
+```{r warning-Test, warning = FALSE}
+# Da warning auf FALSE gesetzt ist, wird die folgende Warnung nicht im endgültigen Dokument angezeigt.
+sqrt(-1)  # Dies erzeugt normalerweise eine Warnung, da die Quadratwurzel aus einer negativen Zahl in R nicht definiert ist.
+
+```
+
+
+## 4 Grafiken in einem RMarkdown
+
+```{r Ggplot-Grafik,  echo=FALSE, results='asis', warning=FALSE, message=FALSE, error=FALSE}
+library(ggplot2)
+
+data(mpg)
+ggplot(mpg, aes(x=displ)) +
+  geom_histogram(binwidth=0.5, fill="blue", color="white") +
+  labs(title="Histogramm von Hubraum", x="Hubraum", y="Anzahl der Autos")
+
+```
+
+
+## 5 Tabellen in RMarkdown
+
+
+### Einfache Tabelle
+```{r einfach-tabelle, echo=FALSE}
+
+mtcars
+
+```
+
+
+### Schöne Tabelle mit dem knitr Paket
+```{r knitr-Tablle, echo=FALSE, results='asis', warning=FALSE, message=FALSE, error=FALSE}
+# Installation und Laden oder nur Laden des Pakets knitr
+if (!require(knitr)) install.packages("knitr") && library(knitr)
+
+data <- data.frame(
+  Name = c("Anna", "Ben", "Celine"),
+  Alter = c(23, 25, 24),
+  Lieblingsfarbe = c("Blau", "Grün", "Rot")
+)
+
+kable(data, 
+      col.names = c("Name", "Alter", "Lieblingsfarbe"),
+      align = c('l', 'c', 'l'),
+      caption = "Eine schöne Tabelle mit dem knitr-Paket.")
+```
+
+### Noch schönere Tabelle mit dem gt Paket
+```{r gt-Tabelle, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
+
+# Installation und Laden oder nur Laden des Pakets gt
+if (!require(gt)) install.packages("gt") && library(gt, quiet = TRUE)
+
+data <- data.frame(
+  Name = c("Anna", "Ben", "Celine"),
+  Alter = c(23, 25, 24),
+  Lieblingsfarbe = c("Blau", "Grün", "Rot")
+)
+
+data %>%
+  gt() %>%
+  tab_header(
+    title = "Eine schöne Tabelle",
+    subtitle = "Erstellt mit dem gt-Paket"
+  ) %>%
+  cols_label(
+    Name = "Name",
+    Alter = "Alter",
+    Lieblingsfarbe = "Lieblingsfarbe"
+  ) %>%
+  tab_options(
+    table.width = "80%"
+  )
+```
+
+
+## 6 HTML-Widgets
+
+
+### Leaflet Karten
+```{r Leaflet-Karte,  echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
+if (!require(leaflet)) install.packages("leaflet") && library(leaflet, quiet = TRUE)
+
+m <- leaflet() %>%
+  addTiles() %>% 
+  addMarkers(lng=174.768, lat=-36.852, popup="Auckland")
+
+m
+
+```
+
+### DT-Tabelle
+```{r DT-Tabelle,  echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
+if (!require(DT)) install.packages("DT") && library(DT, quiet = TRUE)
+
+datatable(mpg[1:10, 1:6], options = list(pageLength = 5))
+
+```
+

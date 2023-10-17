@@ -2,7 +2,7 @@
 
 
 <div id="header" align="center">
-![](images/logo.png)
+![](logo.png)
 </div>
 
 # Einführung in die Open-Source-Software R 
@@ -28,10 +28,10 @@ __Tag 1__
 * Begrüßung und Einführung in den Kurs
 * SHOWCASE: Vom R-Script zum Kurzbericht
 * SETUP: Installation und Kennenlernen von RStudio
-* [SEHEN & NACHMACHEN 1: Variablentypen und einfache Operationen](sehen_nachmachen/1_Variabltentypen_und_einfache_operationen.R)
-* [SEHEN & NACHMACHEN 2: R-Packages Tidyverse, inkl. ggplot](sehen_nachmachen/2_Packages Tidyverse.R)
-* [SEHEN & NACHMACHEN 3: Daten einlesen und transformieren](sehen_nachmachen/3_Daten_lesen_transformieren.R)
-* [SEHEN & NACHMACHEN 4: Grafiken und Bericht erstellen](sehen_nachmachen/4_Grafiken_und_Bericht.Rmd)
+* [SEHEN & NACHMACHEN 1: Variablentypen und einfache Operationen](sehen_nachmachen/1_Variabltentypen_und_einfache_operationen.R)  
+* [SEHEN & NACHMACHEN 2: R-Packages Tidyverse, inkl. ggplot](sehen_nachmachen/2_Packages Tidyverse.R)  
+* [SEHEN & NACHMACHEN 3: Daten einlesen und transformieren](sehen_nachmachen/3_Daten_lesen_transformieren.R)  
+* [SEHEN & NACHMACHEN 4: Grafiken und Bericht erstellen](sehen_nachmachen/4_Grafiken_und_Bericht.Rmd)  
 
 __Tag 2__  
 
