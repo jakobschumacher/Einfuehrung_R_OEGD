@@ -1,20 +1,21 @@
 ---
-title: "ÖGD Bericht für `r params$bundesland`"
-subtitle: "Datenstand: `r format(Sys.Date(), format = '%A, den %d. %B %Y')`"
+title: "Bericht für `r params$bundesland`"
 author: "Jakob Schumacher"
+date: "2023-10-19"
 output:
+  word_document: default
+  html_document:
+    theme: cosmo
   pdf_document: default
-  html_document: 
-    theme: cosmo 
-date: "2023-04-27"
+subtitle: 'Datenstand: `r format(Sys.Date(), format = "%A, den %d. %B %Y")`'
 params:
-  bundesland: Hessen
+  bundesland: Niedersachsen
   datenquelle: "https://raw.githubusercontent.com/robert-koch-institut/COVID-19-Hospitalisierungen_in_Deutschland/master/Aktuell_Deutschland_adjustierte-COVID-19-Hospitalisierungen.csv"
 ---
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = F, error = F, message = F, warning = F)
+knitr::opts_chunk$set(echo = F, error = F, message = F, warning = F, cache = F)
 
 ```
 
@@ -23,23 +24,19 @@ knitr::opts_chunk$set(echo = F, error = F, message = F, warning = F)
 Dies ist ein Bericht für den öffentlichen Gesundheitsdienst. Er ist erstellt mit R und RStudio. Inhaltlilch dreht sich der Bericht um Covid-19-Hospitalisierungen 
 
 ```{r loading_packages}
-# -------------------------------
-# Pakete laden
-# -------------------------------
-library(tidyverse)
-library(ggplot2)
-library(rio)
-library(sf)
-library(osmdata)
+# Pakete laden mit dem paket pacman
+pacman::p_load(tidyverse)
+pacman::p_load(geodata)
+pacman::p_load(sf)
+pacman::p_load(ggplot2)
+pacman::p_load(gt)
 ```
 
 # Methoden
-## Datenquelle
 Die Daten wurden heruntergeladen von der Opendata-Webseite des RKI. 
 
 * Datenquelle: `r params$datenquelle`
 
-## Vorgehensweise
 Bei den Methoden wurde wie folgt vorgegangen:
 
 1. Daten einlesen
@@ -48,9 +45,7 @@ Bei den Methoden wurde wie folgt vorgegangen:
 4. Grafiken erstellen
 
 ```{r reading_data}
-# -------------------------------
 # Daten einlesen
-# -------------------------------
 data <- read_csv(params$datenquelle)
 
 # Hier nutzen wir die Funktion [read_csv des Packages tidyverse. Die Funktion versucht mit sinnvollen Defaults den Datensatz zu lesen. ](https://readr.tidyverse.org/reference/read_delim.html). Alternativ gibt es im Paket "rio" die Funktion "import". Zusammenfassung für [Import Export im Epi R Handbook](https://epirhandbook.com/en/import-and-export.html)
@@ -64,75 +59,103 @@ data <- read_csv(params$datenquelle)
 
 
 ```{r transforming_data}
-# -------------------------------
 # Daten anschauen
-# -------------------------------
 # Mit str kann mann sich Daten in der Konsole anschauen. Befehl wäre: str(data)
 # Mit View kann man sich die Daten direkt Excel-ähnlich anschauen. Befehl wäre: View(data)
 
 
-# -------------------------------
 # Daten transformieren
-# -------------------------------
+# Hier werden die Filter Funktionen aus Tidyverse angewendet. Als Auswahl wird das Bundesland genommen, dass wir über die Paremter-Funktion von Rmarkdown bekommen
 bundesland_data <- data %>% 
   filter(Bundesland == params$bundesland)
 ```
 
 # Ergebnisse
-Insgesamt gibt es `r nrow(data)` Datenpunkte. 
+Insgesamt gibt es `r nrow(data)` Datenpunkte. Hier könnte noch ein längerer Text stehen
 
-
-
-## Inzidenz
-```{r abbildung_1, results='asis'}
-ggplot(bundesland_data, aes(x= Datum, y = OG_PI_adjustierte_7T_Hospitalisierung_Faelle)) +
+```{r Inzidenzkurve, results='asis'}
+ggplot(bundesland_data, aes(x= Datum, y = aktualisierte_7T_Hospitalisierung_Inzidenz)) +
   geom_line() +
-  theme_classic()
+  geom_smooth(span = 0.2) +
+  theme_classic() +
+  ggtitle(paste("Inzidenz in", params$bundesland), "in 2023") +
+  ylab("7 Tage Inzidenz")
+
 
 ```
 
-## Karte
-```{r}
+Nun gibt es noch viele weitere Dinge zu erläutern und eine Karte anzuzeigen  
+```{r Karte anzeigen}
 
-# # Definieren Sie die Abfrage für OSM, um Daten für Hessen zu erhalten
-# query <- opq("Hessen, Germany") %>%
-#   add_osm_feature("admin_level", "4", exact = FALSE) %>%
-#   add_osm_feature("boundary", "administrative")
-# 
-# # Holen Sie die Polygon-Daten
-# hessen_poly <- osmdata_sf(query)
-# 
-# # Zeichnen Sie die Karte
-# ggplot() +
-#   geom_sf(data = hessen_poly$osm_polygons, fill = "lightblue", color = "black") +
-#   ggtitle("Karte von Hessen") +
-#   theme_minimal()
-# 
-# 
-# mannheim <-
-#   osmdata::getbb("Mannheim") %>% 
-#   osmdata::opq(timeout = 25*100) %>%
-#   osmdata::add_osm_feature(
-#     key = "admin_level", 
-#     value = "6"
-#   ) %>% 
-#   osmdata::osmdata_sf() %$% 
-#   osm_multipolygons %>% 
-#   dplyr::filter(name == "Mannheim") %>% # filter on city level
-#   dplyr::select(geometry) %>%
-#   sf::st_transform(3035) 
-# 
-# mannheim
-# 
-# 
-# # Wenn Sie einen bestimmten Wert auf der Karte anzeigen möchten, können Sie geom_text verwenden
-# # Beispiel: Angenommen, es gibt einen Wert von 100 in Frankfurt
-# ggplot(data = hessen) +
+# Beispieldaten herunterladen
+# germany_boundaries <- gadm(country = "Germany", level = 1, path = "beispieldaten/")
+
+germany_boundaries <- readRDS("../beispieldaten/gadm/gadm41_DEU_1_pk.rds")
+
+# Karte anzeigen lassen mit der base-r funktion "plot"
+# plot(germany_boundaries)
+
+# Geographische Daten umwandeln um sie für das Paket "sf" aufzubereiten
+germany_sf <- st_as_sf(germany_boundaries)
+
+# Anzeigen lassen mit dem Paket ggplot und sf
+# ggplot(data = germany_sf) +
 #   geom_sf() +
-#   geom_text(aes(x = 8.6821, y = 50.1109, label = "100"), size = 5, colour = "red") +
-#   ggtitle("Karte von Hessen mit einem Wert in Frankfurt") +
 #   theme_minimal()
+
+# Inzidenzberechnung pro Bundesland ausführen
+bundeslandinzidenzen <- data %>% 
+  filter(Bundesland != "Bundesgebiet") %>% # Das Bundesgebiet rausfiltern
+  group_by(Bundesland) %>% # Gruppieren nach Bundesland
+  summarise(inzidenz = mean(aktualisierte_7T_Hospitalisierung_Inzidenz, na.rm = T)) # Den Mittelwert der Inzidenz berechnen
+
+
+# Daten zusammenführen
+merged_data <- germany_sf %>% left_join(bundeslandinzidenzen, by = c("NAME_1" = "Bundesland"))
+
+# Daten anzeigen
+# ggplot(data = merged_data) +
+#   aes(fill = inzidenz) +
+#   geom_sf() +
+#   theme_minimal()
+
+# Spezifisches Bundesland herausfinden
+spezifisches_bundesland <- merged_data[merged_data$NAME_1 == params$bundesland, ]
+
+
+# Daten anzeigen
+ggplot(data = merged_data) +
+  aes(fill = inzidenz) +
+  geom_sf() +
+  geom_sf(data = spezifisches_bundesland, color = "red", fill = NA, size = 3) +  # Highlight des spezifischen Bundeslandes
+  theme_minimal() +
+  ggtitle(paste("Inzidenz in", params$bundesland, "im Bundeslandvergleich"))
 
 ```
 
+Darüber hinaus ist es wichtig sich die Werte für die Karte anzeigen zu lassen  
+```{r Tabelle anzeigen}
+# Erstellen der Tabelle mit dem gt-Paket
+tabelle <- data %>%
+  group_by(Bundesland) %>% # Gruppieren nach Bundesland
+  summarise(inzidenz = mean(aktualisierte_7T_Hospitalisierung_Inzidenz, na.rm = T)) %>% # Den Mittelwert der Inzidenz berechnen
+  select(Bundesland, inzidenz) %>%
+  gt() %>%
+  tab_header(
+    title = "Aktualisierte 7-Tage-Hospitalisierungsinzidenz pro Bundesland"
+  ) %>%
+  cols_label(
+    Bundesland = "Bundesland",
+    inzidenz = "Aktualisierte 7-Tage-Hospitalisierungsinzidenz"
+  ) %>%
+  fmt_number(
+    columns = vars(inzidenz),
+    decimals = 2
+  )
+
+# Anzeigen der Tabelle
+tabelle
+
+
+```
 

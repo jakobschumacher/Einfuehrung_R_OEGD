@@ -63,14 +63,20 @@ meinefunktion(4,7)
 # 3 Daten anzeigen oder R ist nicht Excel ------------------------------------
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-# Man kann sich in R die Daten anzeigen lassen.
-View(mtcars) # Zur Erläuterung: mtcars ist ein eingebauter Beispiel-Datensatz
+# Der R-Weg sich die Datein anzeigen zu lassen geht mit einem eingebauten Befehl
+# Zur Erläuterung: mtcars ist ein eingebauter Beispiel-Datensatz
+str(mtcars)
 
-# Aber man kann mit der Maus keine Zellen bearbeiten. Man verwendet auch keine
-# Zellenbezüge wie z.B. A1:D4
 
+# Man kann sich die Daten auch "wie in Excel" anzeigen lassen.
+View(mtcars)
+
+# Weitere Unterschiede zu Excel
+# Man bearbeitet nicht mit der Maus.
+# Man verwendet keine Zellenbezüge wie z.B. A1:D4
 # Bei R wird davon ausgegangen, dass man sich die Daten im Kopf vorstellt
-
+# Bei Excel werden die Rohdaten gändert. Bei R erstellt man aus Rohdaten andere Daten.
+# Mit R kann man "reproduzierbar" arbeiten
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # 4 R Variablen sind einer Datenklasse zugeordnet ---------------------------

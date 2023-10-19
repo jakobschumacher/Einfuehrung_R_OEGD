@@ -5,7 +5,6 @@
 </div>
 
 
-## Über die Fortbildung
 In der Fortbildung lernen Sie die Programmiersprache R und die Entwicklungsumgebung RStudio kennen. Der R-Kurs ist für den Öffentlichen Gesundheitsdienst (ÖGD) gedacht. Dieses Repository enthält Begleitmaterialien zum Präsenzkurs an der [Akademie für öffentliches Gesundheitswesen](https://www.akademie-oegw.de/).   
 
 __Link zur Anmeldung zum Präsenzkurs__  
@@ -38,19 +37,18 @@ __Tag 2__
 * Resümee des Kurses und Abschluss
 
 
-## Über dieses Repository
+## Ordnerstruktur
 Dieses Repository enthält alle notwendigen Datein für den Kurs
 
 * Ordner __Sehen_und_Nachmachen__: Hier sind Skripte enthalten, die am Tag 1 verwendet werden
-* Ordner __Showcase__: Hier sind Beispiele für einen Bericht
+* Ordner __Showcase__: Hier ist der Showcase für einen Bericht
 * Ordner __Beispieldaten__: Hier sind Daten angelgt, die während des Kurses verwendet werden
   * __Datei INKAR.csv__  Die Datei stammt aus der [Datenbank INKAR](https://www.inkar.de/). Die Datei wurde von BBSR heruntergeladen. BBSR ist an der Erstellung dieses R-Scriptes nicht beteiligt.
   * __Datei SC2Hospitalisierungen.csv__ Diese Datei stammt vom [Robert Koch-Institut](rki.de).  
 
 ## Bildquellen und Credits
-Logo [Freelogodesign.org](https://www.freelogodesign.org/)  
-Hosting [Github.com](https://github.com)  
-Software R [R-Project.org](https://www.r-project.org/)  
-Software RStduio [Posit.com](https://posit.com)  
-Inhalte [Epidemiologist R Handbook](https://epirhandbook.com/en/)  
-Inhalte [R epidemics consortium](https://www.repidemicsconsortium.org/)
+- Logo [Freelogodesign.org](https://www.freelogodesign.org/)  
+- Hosting [Github.com](https://github.com)  
+- Software R [R-Project.org](https://www.r-project.org/) und RStduio [Posit.com](https://posit.com)  
+- Wichtigste R-Packages [Tidyverse](https://www.tidyverse.org/packages/), [sf](https://r-spatial.github.io/sf/), [pacman](https://github.com/trinker/pacman)
+- Inhalte [Epidemiologist R Handbook](https://epirhandbook.com/en/), [R epidemics consortium](https://www.repidemicsconsortium.org/)
