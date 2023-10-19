@@ -37,6 +37,22 @@ __Tag 2__
 * Resümee des Kurses und Abschluss
 
 
+## Benutzung
+#### Variante 1: Gitrepository als ZIP herunterladen
+![](img/download.png)
+
+
+#### Variante 2: Gitrepository clonen
+
+1. Öffne RStudio
+2. Gehe ins Terminal 
+3. "Klonen des Repositorys"
+```
+git clone https://github.com/jakobschumacher/Einfuehrung_R_OEGD.git
+```
+
+
+
 ## Ordnerstruktur
 Dieses Repository enthält alle notwendigen Datein für den Kurs
 
