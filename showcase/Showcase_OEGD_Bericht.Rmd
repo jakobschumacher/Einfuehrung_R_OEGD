@@ -3,13 +3,13 @@ title: "Bericht für `r params$bundesland`"
 author: "Jakob Schumacher"
 date: "2023-10-19"
 output:
-  word_document: default
   html_document:
     theme: cosmo
+  word_document: default
   pdf_document: default
 subtitle: 'Datenstand: `r format(Sys.Date(), format = "%A, den %d. %B %Y")`'
 params:
-  bundesland: Niedersachsen
+  bundesland: Hessen
   datenquelle: "https://raw.githubusercontent.com/robert-koch-institut/COVID-19-Hospitalisierungen_in_Deutschland/master/Aktuell_Deutschland_adjustierte-COVID-19-Hospitalisierungen.csv"
 ---
 

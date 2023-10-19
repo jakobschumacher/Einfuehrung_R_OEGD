@@ -14,8 +14,7 @@
 # In R gibt es den R-Kern: base-r. Dazu gibt es tausende von weiteren Pakete. Pakete werden auf CRAN gehostet und können von dort installiert werden. Experimentellere Pakete können auch von Github installiert werden.
 
 # Eine Installation geht mit dem Befehl install.packages()
-install.packages("ggplot2") # Installation eines grafischen packages
-install.packages("tidyverse") # Installation eines multifunktionstools
+# install.packages("tidyverse") # Installation eines multifunktionstools
 
 # Für manche Pakete benötigt man spezielle libraries, die auf dem Computer installiert sind. Das ist häufig bei Arbeitsrechner nicht der Fall. Es kann also möglich sein, dass Pakete nicht installiert werden können.
 
@@ -24,7 +23,6 @@ install.packages("tidyverse") # Installation eines multifunktionstools
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 # Alle Pakete müssen am Anfang geladen werden.
-library(ggplot2)
 library(tidyverse)
 
 # Pro Tip: man kann Pakete auch installieren/laden in einem Befehl.
@@ -33,6 +31,7 @@ if (!require(ggplot2)) install.packages("ggplot2") && library(ggplot2)
 # Noch einfacher geht es mit einem Paket
 pacman::p_load(ggplot2)
 
+# Hinweis mit pacmann:: spefiziert man, dass man das Paket pacman benutzen will
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # 3 Ein Blick auf das Paket ggplot2  ---------------------

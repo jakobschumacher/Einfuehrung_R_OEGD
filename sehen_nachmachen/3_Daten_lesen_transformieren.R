@@ -11,7 +11,7 @@
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 # Einlesen einer unproblematischen CSV Datei
-daten_csv_base <- read.csv("beispieldaten/unproblematische_csv_datei.csv")
+daten_csv_base <- read.csv("beispieldaten/csv_datei_unproblematisch.csv")
 
 # Inhalt anzeigen
 print(daten_csv_base)
@@ -43,8 +43,7 @@ print(kommentar_daten)
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 # Hierfür benötigt man das Paket 'readxl'
-install.packages("readxl")
-library(readxl)
+pacman::p_load("readxl")
 
 # Einlesen einer Excel Datei
 daten_excel <- read_excel("beispieldaten/xlsx_datei.xlsx")
@@ -61,8 +60,7 @@ print(daten_excel)
 # Das rio Paket macht das Einlesen von Daten sehr einfach, da es das Format automatisch erkennt.
 
 # rio Paket installieren und laden
-install.packages("rio")
-library(rio)
+pacman::p_load("rio")
 
 # Einlesen einer "deutschen" csv datei
 import("beispieldaten/csv_datei_semikolon.csv")
@@ -89,8 +87,7 @@ import("beispieldaten/csv_datei_kopfzeilen.csv")
 # Es kann sehr schwierig sein Daten umzuwandeln. Das Paket Tidyr aus dem Tidyverse hilft dabei
 
 # Einbinden von benötigten Paketen
-install.packages("tidyverse")  # Falls noch nicht installiert
-library(tidyverse)
+pacman::p_load("tidyverse")  # Falls noch nicht installiert
 
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

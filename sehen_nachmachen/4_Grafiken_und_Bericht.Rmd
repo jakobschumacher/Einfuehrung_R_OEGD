@@ -49,7 +49,7 @@ sqrt(-1)  # Dies erzeugt normalerweise eine Warnung, da die Quadratwurzel aus ei
 ## 4 Grafiken in einem RMarkdown
 
 ```{r Ggplot-Grafik,  echo=FALSE, results='asis', warning=FALSE, message=FALSE, error=FALSE}
-library(ggplot2)
+pacman::p_load(ggplot2)
 
 data(mpg)
 ggplot(mpg, aes(x=displ)) +
