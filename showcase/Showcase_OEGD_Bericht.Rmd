@@ -9,7 +9,7 @@ output:
   pdf_document: default
 subtitle: 'Datenstand: `r format(Sys.Date(), format = "%A, den %d. %B %Y")`'
 params:
-  bundesland: Hessen
+  bundesland: Brandenburg
   datenquelle: "https://raw.githubusercontent.com/robert-koch-institut/COVID-19-Hospitalisierungen_in_Deutschland/master/Aktuell_Deutschland_adjustierte-COVID-19-Hospitalisierungen.csv"
 ---
 
@@ -21,7 +21,7 @@ knitr::opts_chunk$set(echo = F, error = F, message = F, warning = F, cache = F)
 
 
 # Einleitung
-Dies ist ein Bericht für den öffentlichen Gesundheitsdienst. Er ist erstellt mit R und RStudio. Inhaltlilch dreht sich der Bericht um Covid-19-Hospitalisierungen 
+Dies ist ein Bericht für den öffentlichen Gesundheitsdienst. Er ist erstellt mit R und RStudio. Inhaltlilch dreht sich der Bericht um Covid-19-Hospitalisierungen. 
 
 ```{r loading_packages}
 # Pakete laden mit dem paket pacman
@@ -57,7 +57,6 @@ data <- read_csv(params$datenquelle)
 ```
 
 
-
 ```{r transforming_data}
 # Daten anschauen
 # Mit str kann mann sich Daten in der Konsole anschauen. Befehl wäre: str(data)
@@ -74,13 +73,13 @@ bundesland_data <- data %>%
 Insgesamt gibt es `r nrow(data)` Datenpunkte. Hier könnte noch ein längerer Text stehen
 
 ```{r Inzidenzkurve, results='asis'}
+
 ggplot(bundesland_data, aes(x= Datum, y = aktualisierte_7T_Hospitalisierung_Inzidenz)) +
   geom_line() +
   geom_smooth(span = 0.2) +
   theme_classic() +
   ggtitle(paste("Inzidenz in", params$bundesland), "in 2023") +
   ylab("7 Tage Inzidenz")
-
 
 ```
 
@@ -159,3 +158,7 @@ tabelle
 
 ```
 
+# Diskussion
+
+* Siehe auch den [Lagebericht des Landes Berlin](https://data.lageso.de/lageso/corona/corona.html#start)
+* Mehr Infos zu Reports mit RMarkdown [R Epi Handbook](https://epirhandbook.com/en/reports-with-r-markdown.html)

@@ -23,6 +23,9 @@ __Tag 1__
 * Begrüßung und Einführung in den Kurs
 * SHOWCASE: Vom [R-Script](showcase/Showcase_OEGD_Bericht.Rmd) zum [HTML-Bericht](showcase/Showcase_OEGD_Bericht.html) oder [PDF-Bericht](showcase/Showcase_OEGD_Bericht.pdf)
 * SETUP: Installation und Kennenlernen von RStudio
+  * Installation von R und RStudio falls noch notwendig
+  * Was ist R?
+  * Wie ist RStudio aufgebaut?
 * [SEHEN & NACHMACHEN 1: Variablentypen und einfache Operationen](sehen_nachmachen/1_Variabltentypen_und_einfache_operationen.R)  
 * [SEHEN & NACHMACHEN 2: R-Packages Tidyverse Ggplot2](sehen_nachmachen/2_Packages_Tidyverse.R)  
 * [SEHEN & NACHMACHEN 3: Daten einlesen und transformieren](sehen_nachmachen/3_Daten_lesen_transformieren.R)  
