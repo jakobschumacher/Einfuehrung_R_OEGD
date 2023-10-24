@@ -42,7 +42,7 @@ __Tag 2__
 __Nach dem Kurs__
 
 * [Handout der wichtigsten Inhalte des Kurses](handout_r-kurs.html)
-
+* [Data specialization als Vertiefung](https://www.coursera.org/specializations/jhu-data-science)
 
 ## Benutzung
 #### Variante 1: Gitrepository als ZIP herunterladen
