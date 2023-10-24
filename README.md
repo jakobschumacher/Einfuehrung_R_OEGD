@@ -39,6 +39,10 @@ __Tag 2__
 * EXKURS 3: ChatGPT
 * Resümee des Kurses und Abschluss
 
+__Nach dem Kurs__
+
+* [Handout der wichtigsten Inhalte des Kurses](handout_r-kurs.html)
+
 
 ## Benutzung
 #### Variante 1: Gitrepository als ZIP herunterladen

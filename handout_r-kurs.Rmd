@@ -3,9 +3,12 @@ title: "Einführung in R"
 author: "Florian Beese, Jacob Schumacher"
 date: "`r format(Sys.Date(), '%d. %B %Y')`"
 output:
+  html_document:
+    toc: yes
+    df_print: paged
   pdf_document:
-    toc: true
-subtitle: "Vom ÖGD für den ÖGD"
+    toc: yes
+subtitle: Vom ÖGD für den ÖGD
 urlcolor: blue
 ---
 
@@ -21,8 +24,6 @@ pacman::p_load(ggplot2, ggbump)
 
 </center>
   
-<img align="left" width="100" height="100" src=logo.png>
-
 Liebe Teilnehmende,
 
 vielen Dank für Ihre Teilnahme am Einführungskurs in die statistische Programmierung mit R der [Akademie für öffentliches Gesundheitswesen](https://www.akademie-oegw.de/).  
@@ -101,6 +102,6 @@ Wenn nicht schon geschehen, werden Sie beim Googeln häufig auf die Seite [Stack
 Wie gesagt, die Community ist groß und dementsprechend gibt es zahlreiche Nutzerinnen und Nutzer von R, die ihre Kenntnisse in Tutorials und kostenlosen Einführungskursen auf Youtube stellen. Das hat den Vorteil, dass Sie aktiv folgen und mitarbeiten können.
 
 ### ChatGPT
-xxx
+Mit ChatGPT [chat.openai.com](https://chat.openai.com) können einfache Codeschnipsel erstellt werden. Auch für die Analyse von Fehlermeldungen ist es sehr hilfreich. 
 
 
