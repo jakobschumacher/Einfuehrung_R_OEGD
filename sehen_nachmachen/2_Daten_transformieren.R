@@ -1,4 +1,77 @@
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Lernziele ---------------------
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+# In diesem Lernabschnitt werden wir uns damit befassen, wie man in R zusätzliche Pakete installiert und nutzt. Das Ziel ist es, die Funktionsweise und Vorteile von 'ggplot2' für grafische Darstellungen und 'tidyverse' für umfangreiche Datenbearbeitung zu verstehen. Wir lernen, wie man Daten visuell mit 'ggplot2' interpretiert und wie man Daten mithilfe von 'tidyverse' effizient filtert, auswählt und zusammenfasst. Am Ende dieses Abschnitts sollten Sie in der Lage sein, diese Werkzeuge effektiv zu nutzen, um Datenanalysen in R durchzuführen.
+
+
+
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# 1 Tidyverse  ---------------------
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+# Die bekanntesten Pakete für Datenmanagement heißen tidyr und dplyr, die beide in der Paketsammlung von tidyverse enthalten sind
+
+library(tidyverse) # Paket laden
+
+
+# Wir erstellen Beispieldaten (in einem data frame bzw. wie es in Tidyverse heißt: tibble ).
+data <- tibble(
+  Name = c("Anna", "Ben", "Celine", "Daniel", "Eva"),
+  Alter = c(23, 25, 24, 22, 26),
+  Lieblingszahl = c(50000, 3249, 29000000, 5000, 7)
+)
+
+# Beispieldaten
+print(data)
+
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# 5 Filtern  ---------------------
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+# Mit 'filter' kann man Zeilen basierend auf Bedingungen auswählen.
+# Zum Beispiel alle, die älter als 24 sind.
+df_gefilterte_daten <- data %>%
+  filter(Alter > 24)
+
+print(df_gefilterte_daten)
+
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# 6 Spalte selektieren  ---------------------
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Mit 'select' kann man bestimmte Spalten auswählen.
+# Zum Beispiel nur Name und Lieblingszahl
+df_ausgewaehlte_spalten <- data %>%
+  select(Name, Lieblingszahl)
+
+print(df_ausgewaehlte_spalten)
+
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# 7 Spalte neu anlegen (mutieren) ---------------------
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Mit 'mutate' kann man neue Spalten basierend auf existierenden Spalten erstellen.
+# Zum Beispiel eine Spalte, die eine echte Lieblingszahl anzeigt (Studien ergeben, dass Lieblingszahlen meist zu hoch angegeben werden)
+df_realistische_lieblingszahl <- data %>%
+  mutate(Realistische_Liebelingszahl = Lieblingszahl * 0.8)
+
+print(df_realistische_lieblingszahl)
+
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# 8 Spalten zusammenfassen  ---------------------
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Mit 'summarise' kann man Zusammenfassungen von Daten erstellen.
+# Zum Beispiel den Durchschnitt der Lieblingszahl
+df_durchschnitt_Lieblingszahl <- data %>%
+  summarise(Durchschnitt_Lieblingszahl = mean(Lieblingszahl))
+
+print(df_durchschnitt_Lieblingszahl)
+
+
+
+
+
+
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # 4 Transformieren von Daten mit dem Paket Tidyr ----------------------------
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
