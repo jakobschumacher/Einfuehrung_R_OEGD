@@ -8,28 +8,30 @@
 In der Fortbildung lernen Sie die Programmiersprache R und die Entwicklungsumgebung RStudio kennen. Der R-Kurs ist für den Öffentlichen Gesundheitsdienst (ÖGD) gedacht. Dieses Repository enthält Begleitmaterialien zum Präsenzkurs an der [Akademie für öffentliches Gesundheitswesen](https://www.akademie-oegw.de/).   
 
 __Link zur Anmeldung zum Präsenzkurs__  
-Herbst 2023 [https://www.akademie-oegw.de/fortbildung/details/e-132023](https://www.akademie-oegw.de/fortbildung/details/e-132023)
+April 2024 [https://www.akademie-oegw.de/fortbildung/details/e-62024]https://www.akademie-oegw.de/fortbildung/details/e-62024)
 
 __Inhalte der Schulung__  
-In der Fortbildung erhalten Sie neben einer kurzen Einführung in die Grundlagen der Programmierung mit Base R, eine theoretische und praktische Einführung in die moderne Datenanalyse mit Tidyverse: Sie lernen Daten einzulesen, mit tidyr umzustrukturieren und mit dplyr zu verarbeiten und zu aggregieren. Außerdem lernen Sie in Ansätzen ggplot2 Grafiken und die Anwendung von R Markdown kennen. Begleitend erhalten Sie einen Einblick in einfache statistische Auswertungen mit R.
+In der Fortbildung erhalten Sie einen Überblick über die Programmiersprache R und die Entwicklungsumgebung RStudio. Die Fortbildung richtet sich vor allem an Anfänger:innen, es sind keine Vorkenntnisse in R notwendig - Basiskenntnisse der Statistik sowie Erfahrungen mit anderen syntaxbasierten Statistikprogrammen sind jedoch von Vorteil. Wir empfehlen das Epidemiologist R Handbook, welches als Open Access Publikation online verfügbar ist, zu nutzen. Vorbereitend empfehlen wir die Kapitel 1 bis 11 zu lesen.
 
-Neben den theoretischen Einblicken, werden wir von Beginn an praktisch arbeiten und Sie erlernen, wie aus einem R-Skript ein Kurzbericht entstehen kann. Am zweiten Tag können Sie das Erlernte mit Ihren eigenen Daten nachvollziehen. Bringen Sie deshalb bitte einen eigenen Datensatz und eine einfache eigene Fragestellung zur Bearbeitung und Auswertung ihrer Daten mit.
+In der Fortbildung erhalten Sie neben einer kurzen Einführung in die Grundlagen der Programmierung mit Base R, eine theoretische und praktische Einführung in die moderne Datenanalyse mit Tidyverse und RMarkdown. Wir folgen im Kurs den Schritten: 1) Daten einlesen, 2) Daten transformieren 3) Tabellen und Grafiken erstellen 4) Bericht erstellen. Diese Schritte werden immer wieder wiederholt: Im Showcase und in der Praxis beim Sehen und Nachmachen am ersten Veranstaltungstag, in den Übungen am zweiten Tag sowie als optionale Lehrwiederholung, die Sie zu Hause im Nachgang durchführen können. Für die praktischen Lerneinheiten können Sie unseren vorbereiteten Lehrdatensatz nutzen oder eigene Daten mitbringen. 
 
 __Voraussetzungen__
-Die Fortbildung richtet sich vor allem an Anfänger:innen, es sind keine Vorkenntnisse in R notwendig - Basiskenntnisse der Statistik sind jedoch von Vorteil. Ein Laptop auf dem R installiert ist (möglichst >= R version 4.1.3) und RStudio (möglichst >= 2022.07.1).
+Ein Laptop auf dem R (möglichst >= R version 4.1.3) und RStudio (möglichst >= 2022.07.1) installiert sind. Außerdem installieren Sie bitte folgende Packages: tidyverse, rmarkdown, knitr, sf, pacman, gt, leaflet, DT, geodata. Melden Sie sich gern bei Fragen zu den notwendigen Installationen.
+
+Sollten die Installationen auf Ihrem dienstlichen Rechner nicht möglich sein, empfehlen wir ein privates Laptop mitzunehmen. 
 
 __Tag 1__  
 
-* Begrüßung und Einführung in den Kurs
-* SHOWCASE: Vom [R-Script](showcase/Showcase_OEGD_Bericht.Rmd) zum [HTML-Bericht](showcase/Showcase_OEGD_Bericht.html) oder [PDF-Bericht](showcase/Showcase_OEGD_Bericht.pdf)
-* SETUP: Installation und Kennenlernen von RStudio
+* 10.00 Begrüßung und Einführung in den Kurs
+* 10.15 SHOWCASE: Vom [R-Script](showcase/Showcase_OEGD_Bericht.Rmd) zum [HTML-Bericht](showcase/Showcase_OEGD_Bericht.html) oder [PDF-Bericht](showcase/Showcase_OEGD_Bericht.pdf)
+* 10.45 [SETUP: Installation und Kennenlernen von RStudio]((sehen_nachmachen/1_Variabltentypen_und_einfache_operationen.R))
   * Installation von R und RStudio falls noch notwendig
   * Was ist R?
   * Wie ist RStudio aufgebaut?
-* [SEHEN & NACHMACHEN 1: Variablentypen und einfache Operationen](sehen_nachmachen/1_Variabltentypen_und_einfache_operationen.R)  
-* [SEHEN & NACHMACHEN 2: R-Packages Tidyverse Ggplot2](sehen_nachmachen/2_Packages_Tidyverse.R)  
-* [SEHEN & NACHMACHEN 3: Daten einlesen und transformieren](sehen_nachmachen/3_Daten_lesen_transformieren.R)  
-* [SEHEN & NACHMACHEN 4: Grafiken und Bericht erstellen](sehen_nachmachen/4_Grafiken_und_Bericht.Rmd)  
+* 13.30 [SEHEN & NACHMACHEN 1: Daten einlesen]   
+* 14.20 [SEHEN & NACHMACHEN 2: Daten transformieren](sehen_nachmachen/2_Packages_Tidyverse.R)  
+* 16.30 [SEHEN & NACHMACHEN 3: Grafiken und Tabellen erstellen](sehen_nachmachen/3_Daten_lesen_transformieren.R)  
+* 17.15 [SEHEN & NACHMACHEN 4: Bericht erstellen](sehen_nachmachen/4_Grafiken_und_Bericht.Rmd)  
 
 __Tag 2__  
 
