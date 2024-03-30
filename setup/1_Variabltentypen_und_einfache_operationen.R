@@ -233,7 +233,7 @@ mein_vektor <- c(5,7,3,8) # Anlegen des Vektors/Arrays
 mein_vektor # Anzeigen des Vektors
 class(mein_vektor) 
 
-# Wir können auch auf einzelne Werte des Vektors zugreifen. Dies gexchiet, indem wir in eckigen Klammern
+# Wir können auch auf einzelne Werte des Vektors zugreifen. Dies geschieht, indem wir in eckigen Klammern
 # den sogenannten Index, also die Position innerhalb des Vektors angeben
 mein_vektor[1] # gibt uns den ersten Wert aus
 mein_vektor[4] # gibt uns den vierten (letzten) Wert des Vektors aus
