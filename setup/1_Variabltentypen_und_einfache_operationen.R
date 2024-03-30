@@ -94,6 +94,8 @@ cor(c(3,5,6,23,2,4,5), c(2,5,3,2,3,5,9))
 5 != 5 # ist ungleich
 3 >= 2 # ist größer gleich
 3 <= 2 # ist kleiner gleich
+3 < 2 # ist kleiner als
+3 > 2 # ist größer als
 
 # Das ist wichtig, wenn wir später Daten nach bestimmten Merkmalen "filtern" wollen.
 # Der Vergleich funktioniert auch mit Wörtern/Buchstaben und anderen Datenstrukturen
