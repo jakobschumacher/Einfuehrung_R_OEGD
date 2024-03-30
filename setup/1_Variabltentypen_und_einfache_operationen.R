@@ -53,9 +53,9 @@
 
 ## Ausgabefenster und Sonstiges (unten rechts)
 # In diesem Panel sind verschiedene Dinge zu finden. Beispielsweise werden hier Abbildungen angezeigt, 
-# die wir mit unserem Code generieren (Reiter "Plots"). Des Weiteren können wir hier einsehen, aus 
+# die wir mit unserem Code generieren (Reiter "Plots"). Des Weiteren können wir hier einsehen, auf welchen 
 # Ordner unser aktuelles Skript zugreift, was beim Einlesen von Daten und Abspeichern von Output 
-# relevant sein kann (Reiter "Files"). EIn besonders hilfreiches Tool in diesem Panel ist der 
+# relevant sein kann (Reiter "Files"). Ein besonders hilfreiches Tool in diesem Panel ist der 
 # Help-Reiter. Hier können wir uns die Hilfsseiten von Funktionen anzeigen lassen, in dem wir in 
 # der Konsole ?Funktionsname oder help(Funktionsname) eingeben und ausführen. Dazu aber später mehr.
 
@@ -75,9 +75,13 @@
 3 * 2 # Multiplikation
 3 ^ 2 # Potenzierung (3 "hoch" 2)
 
-# Neben einfachen Aufgaben können auch Komplexere bewältigt werden.
+# Neben einfachen Aufgaben können auch komplexere Rechenoperationen bewältigt werden.
 # Zum Beispiel Wurzel ziehen
 sqrt(49)
+
+# Neben den oben genannten Operationen gibt es natürlich noch viele weitere Rechen-
+# operationen, die sich mit R ausführen lassen. Weiterführende INformationen lassen
+# sich hier finden: https://www.produnis.de/R/rechnen-mit-r.html
 
 # Es ist möglich einen Mittelwert zu berechnen.
 mean(c(3,5,7,23,4))
@@ -96,6 +100,9 @@ cor(c(3,5,6,23,2,4,5), c(2,5,3,2,3,5,9))
 "a" == "a" 
 "b" == "B" # Was passiert hier?
 
+# R ist "case-sensitiv". Das bedeutet, dass R zwischen Klein- und Großbuchstaben 
+# unterscheidet. "b" ist demnach nicht das gleiche wie "B".
+
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # 2 R ist eine Programmiersprache -------------------------------------------
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -109,35 +116,37 @@ cor(c(3,5,6,23,2,4,5), c(2,5,3,2,3,5,9))
 # Die Zeichenfolge NA steht für etwas nicht vorhandenes
 
 
-# Mit R können Variablen gesetzt werden
+# Mit R können Variablen gesetzt bzw. Objekte erstellt werden
 a <- "Hallo"
 b <- "Welt"
+
+# Schauen wir nun übrigens in das "Environment"-Panel sehen wir, dass dort zwei
+# neue Objekte namens "a" und "b" angelegt wurden
 
 # Wenn man eine Variable mit Strg+Enter aufruft wird sie ausgeführt
 a
 b
 
-# In R können Funktionen erstellt werden
-# Programmierung der Funktion
-meinefunktion <- function(x, y){
-  print("Die Addition ergibt:")
-  print(x + y)
-
-  print("Die Multiplikation ergibt:")
-  print(x * y)
-}
-
-# Ausführen der Funktion
-meinefunktion(4,7)
+# In R ist es üblich alle möglichen Datenstrukturen als Objekte abzuspeichern.
+# Objekte können wir benennen wie wir wollen. Sie sollten nur nicht mit einer Zahl
+# beginnen und sollten keine Zeichen wie bspw. !, +, - etc enthalten, da diese
+# in R andere Bedeutungen haben. Auch deutsche Umlaute sollten vermieden werden. 
+# Zulässige Sonderzeichen bei der Benennung von Variablen sind hingegen der 
+# Unterstrich (_) und der Punkt (.).
+x <- 5
+y <- 10
+x_plus_y <- x + y
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # 3 Daten anzeigen oder R ist nicht Excel ------------------------------------
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-# Der R-Weg sich die Datein anzeigen zu lassen geht mit einem eingebauten Befehl
+# Der R-Weg sich die Dateien anzeigen zu lassen geht mit eingebauten Befehlen
 # Zur Erläuterung: mtcars ist ein eingebauter Beispiel-Datensatz
-str(mtcars)
-
+str(mtcars) # zeigt die Datenstruktur
+head(mtcars) # zeigt die ersten 6 Zeilen der Daten
+tail(mtcars) # zeigt die letzten 6 Zeilen der Daten
+names(mtcars) # zeigt die "Namen" also die Variablennamen/Spaltennamen
 
 # Man kann sich die Daten auch "wie in Excel" anzeigen lassen.
 View(mtcars)
@@ -146,7 +155,7 @@ View(mtcars)
 # Man bearbeitet nicht mit der Maus.
 # Man verwendet keine Zellenbezüge wie z.B. A1:D4
 # Bei R wird davon ausgegangen, dass man sich die Daten im Kopf vorstellt
-# Bei Excel werden die Rohdaten gändert. Bei R erstellt man aus Rohdaten andere Daten.
+# Bei Excel werden die Rohdaten geändert. Bei R erstellt man aus Rohdaten andere Daten.
 # Mit R kann man "reproduzierbar" arbeiten
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -155,11 +164,11 @@ View(mtcars)
 
 # Essentiell zum Verständnis für R sind Datenklassen.
 
-# character = ein Text
+# character = ein Text (Variablen, die zur Datenklasse character gehören werden auch manchmal strings genannt)
 # numeric = eine Zahl
-# factor = eine Gruppe
+# factor = eine Gruppe mit Rangfolge
 # date = ein Datum
-# logical = ein Ja/Nein Wert
+# logical = ein Ja/Nein Wert bzw. TRUE (1) und FALSE (0)
 # data.frame = ein tabellarischer Datensatz
 # list = eine Sammlung von Klassen
 
@@ -182,7 +191,7 @@ class(meine_zahl_variable) # Class anzeigen
 # Manche Datenklassen kann man in eine andere umwandeln
 meine_text_variable <- c("blau") # Variable festlegen
 class(meine_text_variable) # Class anzeigen
-meine_text_variable <- factor(meine_text_variable) # Umwandeln in ein Factor
+meine_text_variable <- factor(meine_text_variable) # Umwandeln in einen Factor
 class(meine_text_variable) # Class anzeigen
 
 
@@ -194,7 +203,7 @@ class(meine_text_variable) # Class anzeigen
 
 # Anlage als Text
 mein_datum <- "03.05.2023"
-class(a) # Anlage als Text
+class(mein_datum) # Anlage als Text
 
 # Anlage als direkte Zahl geht nicht
 mein_datum <- 03.05.2023
@@ -219,11 +228,23 @@ class(numeric)
 # Ein Vektor (eine Sammlung von mehreren Werten) wird üblicherweise mit der Funktion c() angelegt
 # In anderen Programmiersprachen wie bspw. Python wird auch der Begriff Array verwendet.
 mein_vektor <- c(5,7,3,8) # Anlegen des Vektors/Arrays
-mein_vektor # Anzeigen des Vektorss
+mein_vektor # Anzeigen des Vektors
 class(mein_vektor) 
 
+# Wir können auch auf einzelne Werte des Vektors zugreifen. Dies gexchiet, indem wir in eckigen Klammern
+# den sogenannten Index, also die Position innerhalb des Vektors angeben
+mein_vektor[1] # gibt uns den ersten Wert aus
+mein_vektor[4] # gibt uns den vierten (letzten) Wert des Vektors aus
 
-# Es gibt Datenklassen für eine ganze Tabelle wird mit der Funktion data.frame() erreicht
+# Dies lässt sich auch mit weiteren Funktionen verknüpfen. So wissen wir beispielsweise manchmal
+# nicht die wievielte Position der letzte Wert hat. In diesem Fall können wir beispielsweise die
+# Funktion length() benutzen, die uns die "Länge" einer Datenstruktur ausgibt und somit auch die 
+# Position des letzten Werts
+length(mein_vektor) # gibt uns die Länge des Vektors aus
+mein_vektor[length(mein_vektor)]
+
+
+# Es gibt Datenklassen für eine ganze Tabelle. Diese wird mit der Funktion data.frame() generiert.
 tiertabelle <- data.frame(
   name = c("Hund", "Schlange", "Giraffe"),
   hoehe = c(1.1,0.2,9),
@@ -233,7 +254,8 @@ tiertabelle # Anzeigen lassen
 class(tiertabelle) # Classe anzeigen
 
 # Die einzelnen Spalten lassen sich aus einer Tabelle mit dem $ Zeichen herausholen
-tiertabelle$name
+tiertabelle$name # einzelne Spalte anzeigen
+tiernamenvektor <- tiertabelle$name # einzelne Spalte als ein neues Objekt abspeichern
 
 # Die einzelnen Spalten können unterschiedliche Klassen enthalten
 class(tiertabelle$name)
@@ -270,7 +292,7 @@ mein_datums_vektor <- c("2022-06-01", "2024-07-03", "2021-09-23")
 mein_datums_vektor <- as.Date(mein_datums_vektor)
 
 # Frühestes Datum
-min(mein_datums_vektory)
+min(mein_datums_vektor)
 
 #Medianer Wert
 median(mein_datums_vektor)
@@ -282,11 +304,12 @@ mean(mein_datums_vektor)
 # 8 Aufbau von Funktionen ---------------------------------------------------
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # Funktionen haben einen bestimmten Aufbau. Sie bestehen und aus dem Funktionsnamen
-# und sogenannten Argumenten. Die Argumente werden in Klammern ausgewiesen. Um zu 
-# sehen, welche Argumente in einer bestimmten Funktion genannt werden können, können
-# wir auf die Hilfsseiten zugreifen.
+# und sogenannten Argumenten. Die Argumente werden in Klammern ausgewiesen. 
 
+# Um zu sehen, welche Argumente in einer bestimmten Funktion genannt werden können, 
+# können wir auf die Hilfsseiten zugreifen.
 ?mean
+help(mean)
 
 # Hier wird nun folgendes angezeigt: mean(x, trim = 0, na.rm = FALSE, ...)
 # In den Klammern finden sich die Argumente, die auf der Hilfsseite weiter unten auch 
@@ -305,4 +328,26 @@ mean(x = c(1,2,3,4,5))
 mean(c(1,2,3,4,5), 0, FALSE)
 # ist das gleiche wie:
 mean(x = c(1,2,3,4,5), trim = 0, na.rm = FALSE)
+
+
+# In R können auch Funktionen erstellt werden
+# Programmierung der Funktion
+meinefunktion <- function(x, y){
+  print("Die Addition ergibt:")
+  print(x + y)
+
+  print("Die Multiplikation ergibt:")
+  print(x * y)
+}
+
+# Ausführen der Funktion
+meinefunktion(4,7)
+
+# Eigene Funktionen zu schreiben wirkt im ersten Moment recht fortgeschritten und geht im Rahmen dieses Kurses
+# über die Lernziele hinaus. Es kann sich trotzdem lohnen, sich beizeiten damit zu beschäftigen, da man sich so
+# ganz individuelle Prozesse automatisieren kann, bspw. wenn man eine bestimmte Operation immer und immer wieder 
+# durchführen möchte. Eine kleine Einführung dazu findet sich hier: https://www.produnis.de/R/eigene-funktionen.html
+
+
+
 
