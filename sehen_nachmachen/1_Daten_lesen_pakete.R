@@ -80,7 +80,7 @@ pacman::p_load(ggplot2)
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 # Hierfür benötigt man das Paket 'readxl'
-pacman::p_load("readxl")
+library("readxl")
 
 # Einlesen einer Excel Datei
 daten_excel <- read_excel("beispieldaten/xlsx_datei.xlsx")
@@ -91,13 +91,13 @@ print(daten_excel)
 
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-# 6 Für Fortgeschrittene: Einlesen von Dateien mit dem Paket rio -----
+# 6 Für Fortgeschrittene Faule: Einlesen von Dateien mit dem Paket rio -----
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 # Das rio Paket macht das Einlesen von Daten sehr einfach, da es das Format automatisch erkennt.
 
 # rio Paket installieren und laden
-pacman::p_load("rio")
+library("rio")
 
 # Einlesen einer "deutschen" csv datei
 import("beispieldaten/csv_datei_semikolon.csv")

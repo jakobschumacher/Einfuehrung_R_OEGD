@@ -1,0 +1,89 @@
+--- 
+title: Abwassersurveillance Wochenbericht
+---
+
+
+# Einleitung
+Mit Abwassersurveillance wird das Abwasser auf Erreger untersucht.
+
+# Methoden
+```{r knitr-Tablle, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Setup -------------
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+pacman::p_load("tidyverse")
+pacman::p_load("rio")
+pacman::p_load("gt")
+
+
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Reading in data -------------
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+data <- rio::import("https://raw.githubusercontent.com/robert-koch-institut/Abwassersurveillance_AMELAG/main/amelag_einzelstandorte.tsv")
+
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Transforming data
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Select only the variables: 'datum', 'standort', 'bundesland', 'viruslast' 
+data <- data %>% 
+  select(datum, standort, bundesland, viruslast)
+
+
+# Wee see a lot of 'NA' Values which we dont need, so we filter them out. We use drop_na() to get rid of those NA values
+data <- data %>% 
+  drop_na(viruslast)
+
+# Now we take only values from Augsburg         
+data <- data %>% 
+  filter(standort == "Augsburg")
+
+
+# Wir speichern jetzt variablen, die wir später für den Bericht benötigen
+number_of_observations <- nrow(data)
+date_first_observation <- min(data$datum)
+date_last_observation <- max(data$datum)
+
+```
+
+Dieser Bericht verwendet [Offene Daten des Robert Koch-Instituts aus dem Projekt AMELAG](https://github.com/robert-koch-institut/Abwassersurveillance_AMELAG).
+Insgesamt existieren für Augsburg `r number_of_observations` Messwerte zwischen dem `r date_first_observation` und dem `r date_last_observation`. 
+
+# Ergebnisse
+```{r Line-graph, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Grafik -------------
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+data %>% 
+  ggplot() +
+  aes(x = datum, y = viruslast) +
+  geom_line(color = "darkgrey") +
+  geom_smooth(span = 0.2, se = FALSE, color = "black") +
+  geom_point(color = "darkgrey") +
+  ggtitle("Viruslast auf SARS-CoV2 in Augsburg") +
+  xlab("Datum der Probenahme") +
+  ylab("Viruslast") +
+  theme_minimal()
+```
+
+
+```{r Table, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Tabelle -------------
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+data %>% 
+  select(datum, viruslast) %>% 
+  gt() %>% 
+  tab_header(
+    title = "Werte der Abwassersurveillance",
+    subtitle = paste("Datenstand vom", min(data$datum))
+  ) %>%
+  cols_label(
+    datum = "Datum",
+    viruslast = "Viruslast"
+  ) %>%
+  tab_options(
+    table.width = "80%"
+  )
+
+
+

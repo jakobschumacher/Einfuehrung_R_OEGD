@@ -1,0 +1,48 @@
+--- 
+title: Abwassersurveillance Wochenbericht
+author: HIER NAME EINTRAGEN
+---
+
+
+# Einleitung
+Mit Abwassersurveillance wird das Abwasser auf Erreger untersucht.
+
+# Methoden
+```{r knitr-Tablle, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Setup -------------
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# HIER SOLLTEN DIE PAKETE GELADEN WERDEN
+
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Reading in data -------------
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Datenquelle "https://raw.githubusercontent.com/robert-koch-institut/Abwassersurveillance_AMELAG/main/amelag_einzelstandorte.tsv"
+
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Transforming data
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+```
+
+Dieser Bericht verwendet [Offene Daten des Robert Koch-Instituts aus dem Projekt AMELAG](https://github.com/robert-koch-institut/Abwassersurveillance_AMELAG).
+Insgesamt existieren für Augsburg HIER WERT EINTRAGEN Messwerte zwischen dem HIER WERT EINTRAGEN  und dem HIER WERT EINTRAGEN . 
+
+# Ergebnisse
+```{r Line-graph, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Grafik -------------
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+```
+
+
+```{r Table, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Tabelle -------------
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+

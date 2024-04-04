@@ -2,7 +2,7 @@
 # Lernziele ---------------------
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-# In diesem Lernabschnitt werden wir uns damit befassen, wie man in R zusätzliche Pakete installiert und nutzt. Das Ziel ist es, die Funktionsweise und Vorteile von 'ggplot2' für grafische Darstellungen und 'tidyverse' für umfangreiche Datenbearbeitung zu verstehen. Wir lernen, wie man Daten visuell mit 'ggplot2' interpretiert und wie man Daten mithilfe von 'tidyverse' effizient filtert, auswählt und zusammenfasst. Am Ende dieses Abschnitts sollten Sie in der Lage sein, diese Werkzeuge effektiv zu nutzen, um Datenanalysen in R durchzuführen.
+# In diesem Lernabschnitt werden wir uns damit befassen, wie man Daten mithilfe von 'tidyverse' effizient filtert, auswählt und zusammenfasst, umwandelt und zusammenfügt. Für einen kompletten Anfänger wird es schwer sein dieses vollständig zu verarbeiten - hier reicht es erstmal zu sehen, was möglich ist.
 
 
 
@@ -15,7 +15,7 @@
 library(tidyverse) # Paket laden
 
 
-# Wir erstellen Beispieldaten (in einem data frame bzw. wie es in Tidyverse heißt: tibble ).
+# Wir erstellen Beispieldaten (in einem tibble).
 data <- tibble(
   Name = c("Anna", "Ben", "Celine", "Daniel", "Eva"),
   Alter = c(23, 25, 24, 22, 26),
@@ -26,53 +26,64 @@ data <- tibble(
 print(data)
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-# 5 Filtern  ---------------------
+# 2 Funktionsprinzip der "Chain" mit %>% oder  ---------------------
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Die Pakete aus Tidyverse arbeiten mit der natürlichen Herangehensweise. Zuerst nehme die Daten, dann filter diesen Teil raus, dann mache jenes usw. Dieses Vorgehen ist möglich mit dem Pipe-Symbol %>%, das mehrere Befehle aneinanderreiht.
+
+# Detaillierte Infos siehe: https://www.produnis.de/R/rbase-pipe.html
+
+data %>%
+  print()
+
+
+# Ein typischer tidyverse-Block sieht dann so aus:
+data %>%
+  filter(Alter > 22) %>%
+  select(Lieblingszahl, Alter) %>%
+  mutate(gealterte_Lieblingszahl = Lieblingszahl * Alter) %>%
+  summarise(mean = mean(gealterte_Lieblingszahl))
+
+
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# 3 Die Funktion Filtern  ---------------------
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 # Mit 'filter' kann man Zeilen basierend auf Bedingungen auswählen.
 # Zum Beispiel alle, die älter als 24 sind.
-df_gefilterte_daten <- data %>%
+data %>%
   filter(Alter > 24)
 
-print(df_gefilterte_daten)
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-# 6 Spalte selektieren  ---------------------
+# 4 Spalte selektieren  ---------------------
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # Mit 'select' kann man bestimmte Spalten auswählen.
 # Zum Beispiel nur Name und Lieblingszahl
-df_ausgewaehlte_spalten <- data %>%
+data %>%
   select(Name, Lieblingszahl)
 
-print(df_ausgewaehlte_spalten)
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-# 7 Spalte neu anlegen (mutieren) ---------------------
+# 5 Spalte neu anlegen (mutieren) ---------------------
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # Mit 'mutate' kann man neue Spalten basierend auf existierenden Spalten erstellen.
 # Zum Beispiel eine Spalte, die eine echte Lieblingszahl anzeigt (Studien ergeben, dass Lieblingszahlen meist zu hoch angegeben werden)
-df_realistische_lieblingszahl <- data %>%
+data %>%
   mutate(Realistische_Liebelingszahl = Lieblingszahl * 0.8)
 
-print(df_realistische_lieblingszahl)
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-# 8 Spalten zusammenfassen  ---------------------
+# 6 Spalten zusammenfassen  ---------------------
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # Mit 'summarise' kann man Zusammenfassungen von Daten erstellen.
 # Zum Beispiel den Durchschnitt der Lieblingszahl
-df_durchschnitt_Lieblingszahl <- data %>%
+data %>%
   summarise(Durchschnitt_Lieblingszahl = mean(Lieblingszahl))
-
-print(df_durchschnitt_Lieblingszahl)
-
-
-
 
 
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-# 4 Transformieren von Daten mit dem Paket Tidyr ----------------------------
+# 7 Transformieren von Daten mit dem Paket Tidyr ----------------------------
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 # Das Konzept von "Tidy Data" wurde von Hadley Wickham definiert und hat folgende Hauptkriterien:
@@ -85,12 +96,8 @@ print(df_durchschnitt_Lieblingszahl)
 
 # Es kann sehr schwierig sein Daten umzuwandeln. Das Paket Tidyr aus dem Tidyverse hilft dabei
 
-# Einbinden von benötigten Paketen
-pacman::p_load("tidyverse")  # Falls noch nicht installiert
-
-
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-# 5 Pivot long and pivot wide ----------------------------
+# 8 Pivot long and pivot wide ----------------------------
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 # Breite (wide) und lange (long) Datensätze sind zwei gängige Formate, in denen Datenstrukturen organisiert werden können. Der Unterschied zwischen ihnen liegt in der Art und Weise, wie Informationen über Variablen und ihre Beobachtungen in der Tabelle präsentiert werden.
@@ -128,25 +135,30 @@ daten_long <- daten %>%
   pivot_longer(cols = c('2019', '2020', '2021'),
                names_to = "Jahr",
                values_to = "Wert")
+
 print(daten_long)
 
 # Pivot wider: Das Gegenteil von pivot_longer - wandelt Daten von einem 'long' Format in ein 'wide' Format
 daten_wide <- daten_long %>%
   pivot_wider(names_from = "Jahr", values_from = "Wert")
+
 print(daten_wide)
 
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-# 6 Separate and unite ----------------------------
+# 9 Separate and unite ----------------------------
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 # Beispieldaten
-daten_separate <- tibble(
+daten_to_separate <- tibble(
   Name_Jahr = c("Anna_2019", "Ben_2020", "Chris_2021"),
   Wert = c(100, 140, 130))
 
 
-daten_separated <- daten_separate %>%
+print(daten_to_separate)
+
+
+daten_separated <- daten_to_separate %>%
   separate(Name_Jahr, into = c("Name", "Jahr"), sep = "_")
 
 print(daten_separated)
@@ -158,7 +170,7 @@ print(daten_united)
 
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-# 7 Zusammenfügen von Datensätzen ----------------------------
+# 10 Zusammenfügen von Datensätzen ----------------------------
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 # Erstellen von zwei Beispieldatenrahmen
