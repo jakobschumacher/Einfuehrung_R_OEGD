@@ -24,14 +24,14 @@ __Tag 1__
 
 * 10.00 Begrüßung und Einführung in den Kurs
 * 10.15 SHOWCASE: Vom [R-Script](showcase/Showcase_OEGD_Bericht.Rmd) zum [HTML-Bericht](showcase/Showcase_OEGD_Bericht.html) oder [PDF-Bericht](showcase/Showcase_OEGD_Bericht.pdf)
-* 10.45 [SETUP: Installation und Kennenlernen von RStudio]((sehen_nachmachen/1_Variabltentypen_und_einfache_operationen.R))
+* 10.45 [SETUP: Installation und Kennenlernen von RStudio]((setup/1_Variabltentypen_und_einfache_operationen.R))
   * Installation von R und RStudio falls noch notwendig
   * Was ist R?
   * Wie ist RStudio aufgebaut?
-* 13.30 [SEHEN & NACHMACHEN 1: Daten einlesen]   
-* 14.20 [SEHEN & NACHMACHEN 2: Daten transformieren](sehen_nachmachen/2_Packages_Tidyverse.R)  
-* 16.30 [SEHEN & NACHMACHEN 3: Grafiken und Tabellen erstellen](sehen_nachmachen/3_Daten_lesen_transformieren.R)  
-* 17.15 [SEHEN & NACHMACHEN 4: Bericht erstellen](sehen_nachmachen/4_Grafiken_und_Bericht.Rmd)  
+* 13.30 [SEHEN & NACHMACHEN 1: Daten einlesen](sehen_nachmachen/1_Daten_lesen_pakete.R)   
+* 14.20 [SEHEN & NACHMACHEN 2: Daten transformieren](sehen_nachmachen/2_Daten_transformieren.R)  
+* 16.30 [SEHEN & NACHMACHEN 3: Grafiken und Tabellen erstellen](sehen_nachmachen/3_Grafiken_Tabellen.R)  
+* 17.15 [SEHEN & NACHMACHEN 4: Bericht erstellen](sehen_nachmachen/4_Bericht.Rmd)  
 
 __Tag 2__  
 
@@ -43,7 +43,8 @@ __Tag 2__
 
 __Nach dem Kurs__
 
-* [Handout der wichtigsten Inhalte des Kurses](handout_r-kurs.html)
+* [Handout der wichtigsten Inhalte des Kurses](handout/handout_r-kurs.html)
+* [Buch in deutsch](https://www.produnis.de/R/)
 * [Data specialization als Vertiefung](https://www.coursera.org/specializations/jhu-data-science)
 
 ## Benutzung
