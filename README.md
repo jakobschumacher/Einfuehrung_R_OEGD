@@ -65,8 +65,11 @@ git clone https://github.com/jakobschumacher/Einfuehrung_R_OEGD.git
 ## Ordnerstruktur
 Dieses Repository enthält alle notwendigen Datein für den Kurs
 
-* Ordner __Sehen_und_Nachmachen__: Hier sind Skripte enthalten, die am Tag 1 verwendet werden
-* Ordner __Showcase__: Hier ist der Showcase für einen Bericht
+* Ordner __showcase__: Hier ist der Showcase für einen Bericht
+* Ordner __setup__: Hier ist die Einführung in R
+* Ordner __sehen_und_nachmachen__: Hier sind Skripte enthalten, die am Tag 1 verwendet werden
+* Ordner __eigener_bericht__: Hier ist ein möglicher Bericht für den Tag 2
+* Ordner __handout__: Hier ist eine Datei zur Hilfe angelegt
 * Ordner __Beispieldaten__: Hier sind Daten angelgt, die während des Kurses verwendet werden
   * __Datei INKAR.csv__  Die Datei stammt aus der [Datenbank INKAR](https://www.inkar.de/). Die Datei wurde von BBSR heruntergeladen. BBSR ist an der Erstellung dieses R-Scriptes nicht beteiligt.
   * __Datei SC2Hospitalisierungen.csv__ Diese Datei stammt vom [Robert Koch-Institut](rki.de).  
