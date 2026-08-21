@@ -4,20 +4,23 @@
 <img src="logo.png">
 </div>
 
+# Einführung in R für den ÖGD
 
 In der Fortbildung lernen Sie die Programmiersprache R und die Entwicklungsumgebung RStudio kennen. Der R-Kurs ist für den Öffentlichen Gesundheitsdienst (ÖGD) gedacht. Dieses Repository enthält Begleitmaterialien zum Präsenzkurs an der [Akademie für öffentliches Gesundheitswesen](https://www.akademie-oegw.de/).   
 
-__Link zur Anmeldung zum Präsenzkurs__  
-[https://www.akademie-oegw.de/]https://www.akademie-oegw.de/) -> Suche nach "R Kurs"
+## Anmeldung zum Präsenzkurs
 
-__Inhalte der Schulung__  
+<https://www.akademie-oegw.de/> -> Suche nach "R Kurs"
+
+## Inhalte der Schulung
+
 In der Fortbildung erhalten Sie einen Überblick über die Programmiersprache R und die Entwicklungsumgebung RStudio. Die Fortbildung richtet sich vor allem an Anfänger:innen, es sind keine Vorkenntnisse in R notwendig - Basiskenntnisse der Statistik sowie Erfahrungen mit anderen syntaxbasierten Statistikprogrammen sind jedoch von Vorteil. Wir empfehlen das Epidemiologist R Handbook, welches als Open Access Publikation online verfügbar ist, zu nutzen. Vorbereitend empfehlen wir die Kapitel 1 bis 11 zu lesen.
 
 In der Fortbildung erhalten Sie neben einer kurzen Einführung in die Grundlagen der Programmierung mit Base R, eine theoretische und praktische Einführung in die moderne Datenanalyse mit Tidyverse und RMarkdown. Wir folgen im Kurs den Schritten: 1) Daten einlesen, 2) Daten transformieren 3) Tabellen und Grafiken erstellen 4) Bericht erstellen. Diese Schritte werden immer wieder wiederholt: Im Showcase und in der Praxis beim Sehen und Nachmachen am ersten Veranstaltungstag, in den Übungen am zweiten Tag sowie als optionale Lehrwiederholung, die Sie zu Hause im Nachgang durchführen können. Für die praktischen Lerneinheiten können Sie unseren vorbereiteten Lehrdatensatz nutzen oder eigene Daten mitbringen. 
 
-__Voraussetzungen__
+## Voraussetzungen
 
-1. R und RStudio installieren
+### 1. R und RStudio installieren
 
 Bitte bringen Sie einen Laptop mit, auf dem beides installiert ist – zuerst R, danach RStudio:
 
@@ -29,7 +32,7 @@ Die Reihenfolge ist wichtig: RStudio ist nur eine Oberfläche und findet beim er
 > Sollten Installationen auf Ihrem dienstlichen Rechner nicht möglich sein (fehlende Administrationsrechte, gesperrte Downloads), klären Sie das bitte frühzeitig mit Ihrer IT oder bringen Sie ein privates Laptop mit.
 
 
-2. Pakete installieren
+### 2. Pakete installieren
 
 Kopieren Sie den folgenden Befehl in die **Console** (diese finden Sie in Rstudio in einem Tab zumeist links unten) und bestätigen Sie mit Enter:
 
@@ -48,7 +51,9 @@ Hinweise dazu:
 
 Melden Sie sich gern bei Fragen zu den notwendigen Installationen – am besten vor dem Kurstermin, damit wir im Kurs direkt starten können.
 
-__Tag 1__  
+## Kursplan
+
+### Tag 1
 
 * Begrüßung und Einführung in den Kurs
 * **Block 1:** [SHOWCASE](block01_showcase/): Vom [R-Script](block01_showcase/Showcase_OEGD_Bericht.Rmd) zum [HTML-Bericht](block01_showcase/Showcase_OEGD_Bericht.html) oder [PDF-Bericht](block01_showcase/Showcase_OEGD_Bericht.pdf) (J)
@@ -87,7 +92,7 @@ __Tag 1__
   * [Skript zum Mitmachen](block06_grafiken_tabellen/3_Grafiken_Tabellen.R)
 
 
-__Tag 2__  
+### Tag 2
 
 * Begrüßung
 * Freies Arbeiten mit R: [eigener Bericht](block07_bericht/eigener_bericht/Abwasserwochenbericht_unvollstaendig.Rmd)
@@ -100,18 +105,19 @@ __Tag 2__
 * **Block 10:** [Showcase Arbeiten im AI-Chat und arbeiten mit Claude Code](block10_ki_workflow/)
 * Resümee des Kurses und Abschluss
 
-__Nach dem Kurs__
+## Nach dem Kurs
 
 * [Handout der wichtigsten Inhalte des Kurses](block03_base_r/handout/handout_r-kurs.html)
 * [Buch in deutsch](https://www.produnis.de/R/)
 * [Data specialization als Vertiefung](https://www.coursera.org/specializations/jhu-data-science)
 
 ## Benutzung
-#### Variante 1: Gitrepository als ZIP herunterladen
-![](img/download.png)
+
+### Variante 1: Gitrepository als ZIP herunterladen
+![](download.png)
 
 
-#### Variante 2: Gitrepository clonen
+### Variante 2: Gitrepository clonen
 
 1. Öffne RStudio
 2. Gehe ins Terminal 
@@ -123,6 +129,7 @@ git clone https://github.com/jakobschumacher/Einfuehrung_R_OEGD.git
 
 
 ## Ordnerstruktur
+
 Dieses Repository enthält alle notwendigen Dateien für den Kurs. Für jeden Block
 des Kurses gibt es einen eigenen Ordner. In jedem Blockordner liegt eine
 `README.md` mit den Lernzielen und einer Übersicht der enthaltenen Dateien.
@@ -145,13 +152,12 @@ Handout steht in `block03_base_r/handout/`, die Berichtsvorlage für das freie
 Arbeiten in `block07_bericht/eigener_bericht/`, und die kleinen Übungsdateien
 zum Einlesen liegen direkt in `block04_daten_einlesen/`.
 
-Daneben gibt es zwei Ordner, die von mehreren Blöcken genutzt werden:
+Daneben gibt es den Ordner `beispieldaten` mit den Datensätzen, die in
+mehreren Blöcken vorkommen:
 
-* Ordner __img__: Bilder für diese Dokumentation
-* Ordner __beispieldaten__: Datensätze, die in mehreren Blöcken vorkommen
-  * __Datei INKAR.csv__ Die Datei stammt aus der [Datenbank INKAR](https://www.inkar.de/). Die Datei wurde von BBSR heruntergeladen. BBSR ist an der Erstellung dieses R-Scriptes nicht beteiligt.
-  * __Datei SC2Hospitalisierungen.csv__ Diese Datei stammt vom [Robert Koch-Institut](https://www.rki.de).
-  * __Ordner gadm__ Verwaltungsgrenzen von Bundesländern und Landkreisen von [GADM](https://gadm.org/) für die Kartenerstellung
+* **Datei INKAR.csv**: Die Datei stammt aus der [Datenbank INKAR](https://www.inkar.de/). Die Datei wurde von BBSR heruntergeladen. BBSR ist an der Erstellung dieses R-Scriptes nicht beteiligt.
+* **Datei SC2Hospitalisierungen.csv**: Diese Datei stammt vom [Robert Koch-Institut](https://www.rki.de).
+* **Ordner gadm**: Verwaltungsgrenzen von Bundesländern und Landkreisen von [GADM](https://gadm.org/) für die Kartenerstellung
 
 > Wichtig: Öffnen Sie das Kursmaterial immer über die `.Rproj`-Datei im
 > Wurzelverzeichnis. Die R-Skripte lesen ihre Daten mit Pfaden wie
@@ -161,6 +167,6 @@ Daneben gibt es zwei Ordner, die von mehreren Blöcken genutzt werden:
 ## Bildquellen und Credits
 - Logo [Freelogodesign.org](https://www.freelogodesign.org/)  
 - Hosting [Github.com](https://github.com)  
-- Software R [R-Project.org](https://www.r-project.org/) und RStduio [Posit.com](https://posit.com)  
+- Software R [R-Project.org](https://www.r-project.org/) und RStudio [Posit.com](https://posit.com)  
 - Wichtigste R-Packages [Tidyverse](https://www.tidyverse.org/packages/), [sf](https://r-spatial.github.io/sf/), [pacman](https://github.com/trinker/pacman)
 - Inhalte [Epidemiologist R Handbook](https://epirhandbook.com/en/), [R epidemics consortium](https://www.repidemicsconsortium.org/)
