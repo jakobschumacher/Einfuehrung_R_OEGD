@@ -132,7 +132,7 @@ git clone https://github.com/jakobschumacher/Einfuehrung_R_OEGD.git
 
 Dieses Repository enthält alle notwendigen Dateien für den Kurs. Für jeden Block
 des Kurses gibt es einen eigenen Ordner. In jedem Blockordner liegt eine
-`README.md` mit den Lernzielen und einer Übersicht der enthaltenen Dateien.
+`README.md` mit den Zielen des Blocks.
 
 | Ordner | Block | Inhalt |
 |---|---|---|

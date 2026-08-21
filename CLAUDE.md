@@ -7,8 +7,9 @@ Sprache aller Materialien ist Deutsch, mit korrekten Umlauten (Dateien sind UTF-
 ## Ordnerkonvention
 
 Der Kurs ist in zehn Blöcke gegliedert. Pro Block gibt es genau einen Ordner
-`blockNN_thema` im Wurzelverzeichnis, dazu eine `README.md` im Blockordner mit
-Lernzielen, Dateiübersicht und weiterführenden Links.
+`blockNN_thema` im Wurzelverzeichnis, dazu eine `README.md` im Blockordner, die
+ausschließlich die Ziele des Blocks enthält. Alles andere, insbesondere was noch
+fehlt, steht in dieser Datei unter "Stand des Materials".
 
 Die Blockordner müssen auf Ebene 1 bleiben, keine Verschachtelung nach Kurstagen.
 Grund sind die Pfade im Material:
@@ -33,10 +34,49 @@ Blöcken vorkommen: INKAR, SC2Hospitalisierungen, gadm) und `img`.
 
 ## Stand des Materials
 
-Ausgearbeitet sind die Blöcke 1 bis 7. Die Blöcke 8 (Github und Opencode),
-9 (Kartenerstellung) und 10 (AI-Workflow) bestehen bisher nur aus einem
-README-Gerüst mit geplanter Gliederung. Offene Punkte sind in den jeweiligen
-Block-READMEs unter der Überschrift "Offen" bzw. "Status" vermerkt.
+Die Block-READMEs enthalten bewusst nur die Ziele des jeweiligen Blocks. Was
+noch fehlt, steht hier, nicht dort.
+
+Ausgearbeitet: Blöcke 1 bis 7. Offene Punkte darin:
+
+* Block 4: Der Agendapunkt "Einlesen mit KI-Unterstützung" steht in der Kursagenda,
+  fehlt aber im Skript. Wäre Abschnitt 7 in `1_Daten_lesen_pakete.R`
+* Block 6: `3_Grafiken_Tabellen.R` ist mit rund 55 Zeilen knapp und arbeitet mit
+  dem eingebauten Datensatz `mtcars`. Sinnvoll wären weitere Geome
+  (`geom_col()`, `geom_histogram()`, `geom_point()`), Beschriftung mit `labs()`,
+  ein Theme, `ggsave()` und eine Umstellung auf
+  `beispieldaten/SC2Hospitalisierungen.csv`, damit Block 4 bis 6 auf demselben
+  Datensatz aufeinander aufbauen
+* Block 7: Der Agendapunkt "Quarto" hat kein Material. Geplant ist ein
+  Minimalbeispiel `bericht_quarto.qmd`
+
+Nur Ziele, kein Material: Blöcke 8, 9 und 10.
+
+* Block 8 Github und Opencode: Warum Versionskontrolle im ÖGD, Konto anlegen,
+  Repository klonen, der Zyklus aus add/commit/push, ZIP-Download für alle ohne
+  Git, Einordnung von Opencode. Geplante Dateien `git_grundlagen.md` und
+  `spickzettel_git.md`
+* Block 9 Kartenerstellung: Der Code existiert schon verstreut und muss nur in
+  ein Skript `karten.R` zusammengeführt werden. Vorlagen sind der Karten-Chunk
+  in `block01_showcase/Showcase_OEGD_Bericht.Rmd` (RDS lesen, `st_as_sf()`,
+  `left_join()`, `geom_sf()`, ein Bundesland hervorheben) und die Leaflet-Karte
+  in `block07_bericht/4_Bericht.Rmd`. Daten liegen bereit: `beispieldaten/gadm/`
+  für Bundesländer und Kreise, `beispieldaten/INKAR.csv` für eine
+  Choroplethenkarte auf Kreisebene
+* Block 10 KI-Workflow: Live-Demonstration von der Fragestellung bis zum Bericht,
+  also Datensatz beschreiben, Skript erzeugen lassen, Fehlermeldung
+  zurückspielen, Bericht erzeugen, Ergebnis gegenprüfen. Dazu der Unterschied
+  zwischen Chat im Browser und einem Werkzeug mit Dateizugriff. Geplante Dateien
+  `demo_ablauf.md` und ein bewusst unsauberer `demo_datensatz.csv`. Referentin
+  oder Referent ist in der Kursagenda noch nicht benannt
+
+Datenschutz in Block 10 und in `block03_base_r/ki_unterstuetzung.md`:
+Gesundheitsdaten sind besondere Kategorien personenbezogener Daten nach
+[Art. 9 DSGVO](https://dsgvo-gesetz.de/art-9-dsgvo/) und gehören nicht in einen
+externen Chatdienst. Im Kurs nur offene oder synthetische Daten verwenden.
+
+Die ausführlichen Fassungen der Block-READMEs mit Dateitabellen und
+weiterführenden Links stehen in der Historie bei Commit 971c270.
 
 ## Hinweise für Änderungen
 
