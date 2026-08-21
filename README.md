@@ -81,4 +81,7 @@ Sie vorab das Kursmaterial herunter. Die Anleitung dazu steht in
 * [The Epidemiologist R Handbook](https://epirhandbook.com/en/)
 * [Data specialization als Vertiefung](https://www.coursera.org/specializations/jhu-data-science)
 
+## Mitarbeiten
 
+Verbesserungen am Kursmaterial sind willkommen. Wie das geht, steht in
+[CONTRIBUTING.md](.github/CONTRIBUTING.md).

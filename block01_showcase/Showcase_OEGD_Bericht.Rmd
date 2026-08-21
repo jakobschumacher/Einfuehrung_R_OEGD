@@ -48,7 +48,7 @@ Bei den Methoden wurde wie folgt vorgegangen:
 # Daten einlesen
 data <- read_csv(params$datenquelle)
 
-# Hier nutzen wir die Funktion [read_csv des Packages tidyverse. Die Funktion versucht mit sinnvollen Defaults den Datensatz zu lesen. ](https://readr.tidyverse.org/reference/read_delim.html). Alternativ gibt es im Paket "rio" die Funktion "import". Zusammenfassung für [Import Export im Epi R Handbook](https://epirhandbook.com/en/import-and-export.html)
+# Hier nutzen wir die Funktion [read_csv des Packages tidyverse. Die Funktion versucht mit sinnvollen Defaults den Datensatz zu lesen. ](https://readr.tidyverse.org/reference/read_delim.html). Alternativ gibt es im Paket "rio" die Funktion "import". Zusammenfassung für [Import Export im Epi R Handbook](https://epirhandbook.com/en/new_pages/importing.html)
 # Die eingelesenen Daten werden mit "<-" der Variable data zugeordnet
 # Das Einlesen von Umlaute klappt manchmal nicht. Dann muss der Funktion mitgeteilt werden, dass es sich um UTF-8 kodierte Daten handelt. Dies macht man mit dem Argument encoding = "UTF-8". Das Argument muss mit Komma getrennt werden. Mittels guess_encoding("Dateiname.csv") kann das genaue Encoding herausgefunden werden. 
 # Manchen Funktionen müssen wir zusätzlich mitteilen, dass wir als dezimaltrenner "," statt "." haben.
@@ -161,4 +161,4 @@ tabelle
 # Diskussion
 
 * Siehe auch den [Lagebericht des Landes Berlin](https://data.lageso.de/lageso/corona/corona.html#start)
-* Mehr Infos zu Reports mit RMarkdown [R Epi Handbook](https://epirhandbook.com/en/reports-with-r-markdown.html)
+* Mehr Infos zu Reports mit RMarkdown [R Epi Handbook](https://epirhandbook.com/en/new_pages/rmarkdown.html)
