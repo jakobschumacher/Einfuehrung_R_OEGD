@@ -50,23 +50,43 @@ Melden Sie sich gern bei Fragen zu den notwendigen Installationen – am besten 
 
 __Tag 1__  
 
-* 10.00 Begrüßung und Einführung in den Kurs
-* 10.15 SHOWCASE: Vom [R-Script](showcase/Showcase_OEGD_Bericht.Rmd) zum [HTML-Bericht](showcase/Showcase_OEGD_Bericht.html) oder [PDF-Bericht](showcase/Showcase_OEGD_Bericht.pdf)
-* 10.45 [SETUP: Installation und Kennenlernen von RStudio]((setup/1_Variabltentypen_und_einfache_operationen.R))
+* Begrüßung und Einführung in den Kurs
+* **Block 1:** SHOWCASE: Vom [R-Script](showcase/Showcase_OEGD_Bericht.Rmd) zum [HTML-Bericht](showcase/Showcase_OEGD_Bericht.html) oder [PDF-Bericht](showcase/Showcase_OEGD_Bericht.pdf) (J) 
+* **Block 2:** [SETUP: Installation und Kennenlernen von RStudio]((setup/1_Variabltentypen_und_einfache_operationen.R)) (F)
   * Installation von R und RStudio falls noch notwendig
   * Was ist R?
   * Wie ist RStudio aufgebaut?
-* 13.30 [SEHEN & NACHMACHEN 1: Daten einlesen](sehen_nachmachen/1_Daten_lesen_pakete.R)   
-* 14.20 [SEHEN & NACHMACHEN 2: Daten transformieren](sehen_nachmachen/2_Daten_transformieren.R)  
-* 16.30 [SEHEN & NACHMACHEN 3: Grafiken und Tabellen erstellen](sehen_nachmachen/3_Grafiken_Tabellen.R)  
-* 17.15 [SEHEN & NACHMACHEN 4: Bericht erstellen](sehen_nachmachen/4_Bericht.Rmd)  
+* **Block 3:** Basis-Programmierinhalte und AI-Unterstützung (F)
+  * Base-R
+  * Syntax
+  * Handout
+  * Sich mit AI unterstützen lassen
+* **Block 4:** [Daten einlesen](sehen_nachmachen/1_Daten_lesen_pakete.R) (L)
+  * Datengrundlage (Excel, CSV, Webseiten)
+  * Einlesen mit BaseR
+  * Einlesen rio::import
+  * Einlesen mit AI Unterstützung   
+* **Block 5:** [Daten transformieren](sehen_nachmachen/2_Daten_transformieren.R) (L)
+  * Tidyverse
+  * Select
+  * Mutate
+  * Für Experten: Separate and unite
+  * Für Experten: Join
+* **Block 6:** [Grafiken und Tabellen erstellen](sehen_nachmachen/3_Grafiken_Tabellen.R) (F)
+  * Ggplot2
+  * GT
+
 
 __Tag 2__  
 
-* PRAXIS: Freies Arbeiten mit R
-* EXKURS 1: Github
-* EXKURS 2: Kartenerstellung
-* EXKURS 3: ChatGPT
+* Begrüßung
+* Freies Arbeiten mit R
+* **Block 7:** [Bericht erstellen](sehen_nachmachen/4_Bericht.Rmd) (J)
+  * Markdown
+  * Quarto 
+* **Block 8:** Github und Opencode (J)
+* **Block 9:** Kartenerstellung (L)
+* **Block 10:** Showcase Arbeiten im AI-Chat und arbeiten mit Claude Code
 * Resümee des Kurses und Abschluss
 
 __Nach dem Kurs__
