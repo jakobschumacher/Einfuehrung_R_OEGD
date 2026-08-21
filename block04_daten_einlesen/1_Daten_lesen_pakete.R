@@ -11,7 +11,7 @@
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 # Einlesen einer unproblematischen CSV Datei
-daten_csv_base <- read.csv("beispieldaten/csv_datei_unproblematisch.csv")
+daten_csv_base <- read.csv("block04_daten_einlesen/csv_datei_unproblematisch.csv")
 
 # Inhalt anzeigen
 print(daten_csv_base)
@@ -24,22 +24,22 @@ print(daten_csv_base)
 
 #  Datei mit dem Semikolon-Problem einlesen
 # Wir verwenden das `sep`-Argument, um das Semikolon als Trennzeichen anzugeben
-semikolon_daten <- read.csv("beispieldaten/csv_datei_semikolon.csv", sep = ";")
+semikolon_daten <- read.csv("block04_daten_einlesen/csv_datei_semikolon.csv", sep = ";")
 print(semikolon_daten)
 
 # Datei mit Umlautproblemen einlesen
 # Für dieses Beispiel nehmen wir an, dass die Datei in UTF-8 gespeichert wurde.
 # Das `fileEncoding`-Argument gibt die Kodierung der Datei an
-umlaut_daten <- read.csv("beispieldaten/csv_datei_kodierung_utf8.csv", fileEncoding = "UTF-8")
+umlaut_daten <- read.csv("block04_daten_einlesen/csv_datei_kodierung_utf8.csv", fileEncoding = "UTF-8")
 print(umlaut_daten)
 
 # Nun ein Beispiel einer Datei mit Umlauten, die mit ASCII gespeichert wurde
-umlaut_daten <- read.csv("beispieldaten/csv_datei_kodierung_ascii.csv", fileEncoding = "ASCII")
+umlaut_daten <- read.csv("block04_daten_einlesen/csv_datei_kodierung_ascii.csv", fileEncoding = "ASCII")
 print(umlaut_daten)
 
 # Datei mit den Kommentarzeilen einlesen
 # Das `skip`-Argument gibt an, wie viele Zeilen am Anfang der Datei übersprungen werden sollen
-kommentar_daten <- read.csv("beispieldaten/csv_datei_kopfzeilen.csv", skip = 2)
+kommentar_daten <- read.csv("block04_daten_einlesen/csv_datei_kopfzeilen.csv", skip = 2)
 print(kommentar_daten)
 
 
@@ -83,7 +83,7 @@ pacman::p_load(ggplot2)
 library("readxl")
 
 # Einlesen einer Excel Datei
-daten_excel <- read_excel("beispieldaten/xlsx_datei.xlsx")
+daten_excel <- read_excel("block04_daten_einlesen/xlsx_datei.xlsx")
 
 # Inhalt anzeigen
 print(daten_excel)
@@ -100,13 +100,13 @@ print(daten_excel)
 library("rio")
 
 # Einlesen einer "deutschen" csv datei
-import("beispieldaten/csv_datei_semikolon.csv")
+import("block04_daten_einlesen/csv_datei_semikolon.csv")
 
 # Einlesen einer Excel-Datei
-import("beispieldaten/xlsx_datei.xlsx")
+import("block04_daten_einlesen/xlsx_datei.xlsx")
 
 # Einlesen einer Datei mit Kommentaren
-import("beispieldaten/csv_datei_kopfzeilen.csv")
+import("block04_daten_einlesen/csv_datei_kopfzeilen.csv")
 
 
 

@@ -16,13 +16,14 @@ Referent: J
 | Datei | Inhalt |
 |---|---|
 | `4_Bericht.Rmd` | Hauptdatei des Blocks, Abschnitte 1 bis 6 |
+| `eigener_bericht/` | Berichtsvorlage zur Abwassersurveillance als Übung, mit Lösung |
 
 ## Übung: eigener Bericht
 
 Für das freie Arbeiten am Tag 2 liegt eine unvollständige Berichtsvorlage bereit:
 
-* Aufgabe: [`../eigener_bericht/Abwasserwochenbericht_unvollstaendig.Rmd`](../eigener_bericht/Abwasserwochenbericht_unvollstaendig.Rmd)
-* Lösung: [`../eigener_bericht/Abwasserwochenbericht_vollstaendig.Rmd`](../eigener_bericht/Abwasserwochenbericht_vollstaendig.Rmd)
+* Aufgabe: [`eigener_bericht/Abwasserwochenbericht_unvollstaendig.Rmd`](eigener_bericht/Abwasserwochenbericht_unvollstaendig.Rmd)
+* Lösung: [`eigener_bericht/Abwasserwochenbericht_vollstaendig.Rmd`](eigener_bericht/Abwasserwochenbericht_vollstaendig.Rmd)
 
 Die Vorlage nutzt [offene Daten des Robert Koch-Instituts aus dem Projekt AMELAG](https://github.com/robert-koch-institut/Abwassersurveillance_AMELAG)
 zur Abwassersurveillance.

@@ -22,8 +22,14 @@ Grund sind die Pfade im Material:
 Beide Varianten bleiben nur bei gleichbleibender Ordnertiefe gültig. Nach jeder
 Verschiebung von Material die Pfade prüfen.
 
-Gemeinsam genutzte Ordner im Wurzelverzeichnis: `beispieldaten`, `handout`, `img`,
-`eigener_bericht`.
+Material, das nur zu einem Block gehört, liegt in dessen Ordner:
+
+* `block03_base_r/handout/` das Handout
+* `block07_bericht/eigener_bericht/` die Berichtsvorlage für das freie Arbeiten
+* `block04_daten_einlesen/*.csv` und `.xlsx` die kleinen Übungsdateien zum Einlesen
+
+Im Wurzelverzeichnis bleiben nur `beispieldaten` (Datensätze, die in mehreren
+Blöcken vorkommen: INKAR, SC2Hospitalisierungen, gadm) und `img`.
 
 ## Stand des Materials
 

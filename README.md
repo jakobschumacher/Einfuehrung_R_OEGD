@@ -60,7 +60,7 @@ __Tag 1__
 * **Block 3:** [Basis-Programmierinhalte und AI-Unterstützung](block03_base_r/) (F)
   * Base-R
   * Syntax
-  * [Handout](handout/handout_r-kurs.html)
+  * [Handout](block03_base_r/handout/handout_r-kurs.html)
   * [Sich mit AI unterstützen lassen](block03_base_r/ki_unterstuetzung.md)
   * [Skript zum Mitmachen](block03_base_r/base_r_grundlagen.R)
 * **Block 4:** [Daten einlesen](block04_daten_einlesen/) (L)
@@ -90,7 +90,7 @@ __Tag 1__
 __Tag 2__  
 
 * Begrüßung
-* Freies Arbeiten mit R: [eigener Bericht](eigener_bericht/Abwasserwochenbericht_unvollstaendig.Rmd)
+* Freies Arbeiten mit R: [eigener Bericht](block07_bericht/eigener_bericht/Abwasserwochenbericht_unvollstaendig.Rmd)
 * **Block 7:** [Bericht erstellen](block07_bericht/) (J)
   * Markdown
   * Quarto
@@ -102,7 +102,7 @@ __Tag 2__
 
 __Nach dem Kurs__
 
-* [Handout der wichtigsten Inhalte des Kurses](handout/handout_r-kurs.html)
+* [Handout der wichtigsten Inhalte des Kurses](block03_base_r/handout/handout_r-kurs.html)
 * [Buch in deutsch](https://www.produnis.de/R/)
 * [Data specialization als Vertiefung](https://www.coursera.org/specializations/jhu-data-science)
 
@@ -140,20 +140,23 @@ des Kurses gibt es einen eigenen Ordner. In jedem Blockordner liegt eine
 | [block09_karten](block09_karten/) | 9 | Kartenerstellung mit sf und leaflet |
 | [block10_ki_workflow](block10_ki_workflow/) | 10 | Arbeiten im AI-Chat und mit Claude Code |
 
-Daneben gibt es Ordner, die von mehreren Blöcken genutzt werden:
+Das Material, das nur zu einem Block gehört, liegt in dessen Ordner. Das
+Handout steht in `block03_base_r/handout/`, die Berichtsvorlage für das freie
+Arbeiten in `block07_bericht/eigener_bericht/`, und die kleinen Übungsdateien
+zum Einlesen liegen direkt in `block04_daten_einlesen/`.
 
-* Ordner __eigener_bericht__: Eine unvollständige Berichtsvorlage zur Abwassersurveillance für das freie Arbeiten am Tag 2, dazu die vollständige Lösung
-* Ordner __handout__: Eine Übersicht der wichtigsten Inhalte zum Nachschlagen
-* Ordner __img__: Bilder für die Dokumentation
-* Ordner __beispieldaten__: Daten, die während des Kurses verwendet werden
-  * __Dateien csv_datei_*.csv und xlsx_datei.xlsx__ Kleine Übungsdateien für Block 4, jede zeigt ein typisches Problem beim Einlesen
+Daneben gibt es zwei Ordner, die von mehreren Blöcken genutzt werden:
+
+* Ordner __img__: Bilder für diese Dokumentation
+* Ordner __beispieldaten__: Datensätze, die in mehreren Blöcken vorkommen
   * __Datei INKAR.csv__ Die Datei stammt aus der [Datenbank INKAR](https://www.inkar.de/). Die Datei wurde von BBSR heruntergeladen. BBSR ist an der Erstellung dieses R-Scriptes nicht beteiligt.
   * __Datei SC2Hospitalisierungen.csv__ Diese Datei stammt vom [Robert Koch-Institut](https://www.rki.de).
   * __Ordner gadm__ Verwaltungsgrenzen von Bundesländern und Landkreisen von [GADM](https://gadm.org/) für die Kartenerstellung
 
 > Wichtig: Öffnen Sie das Kursmaterial immer über die `.Rproj`-Datei im
-> Wurzelverzeichnis. Die R-Skripte lesen die Beispieldaten mit Pfaden wie
-> `beispieldaten/INKAR.csv`, die relativ zum Wurzelverzeichnis gelten.
+> Wurzelverzeichnis. Die R-Skripte lesen ihre Daten mit Pfaden wie
+> `block04_daten_einlesen/csv_datei_semikolon.csv` oder `beispieldaten/INKAR.csv`,
+> die relativ zum Wurzelverzeichnis gelten.
 
 ## Bildquellen und Credits
 - Logo [Freelogodesign.org](https://www.freelogodesign.org/)  

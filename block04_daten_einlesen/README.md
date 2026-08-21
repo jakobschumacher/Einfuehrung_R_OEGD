@@ -16,7 +16,7 @@ Referentin/Referent: L
 |---|---|
 | `1_Daten_lesen_pakete.R` | Hauptskript des Blocks, Abschnitte 1 bis 6 |
 
-Die Beispieldateien liegen zentral in `../beispieldaten/`:
+Die Übungsdateien liegen in diesem Ordner:
 
 | Datei | Zeigt |
 |---|---|
@@ -29,7 +29,7 @@ Die Beispieldateien liegen zentral in `../beispieldaten/`:
 
 ## Wichtig
 
-Das Skript liest die Daten mit Pfaden wie `"beispieldaten/csv_datei_unproblematisch.csv"`.
+Das Skript liest die Daten mit Pfaden wie `"block04_daten_einlesen/csv_datei_unproblematisch.csv"`.
 Diese Pfade gelten relativ zum Wurzelverzeichnis des Kursprojekts. Öffnen Sie
 deshalb zuerst die `.Rproj`-Datei, sonst findet R die Dateien nicht (siehe Block 2).
 
