@@ -51,42 +51,53 @@ Melden Sie sich gern bei Fragen zu den notwendigen Installationen – am besten 
 __Tag 1__  
 
 * Begrüßung und Einführung in den Kurs
-* **Block 1:** SHOWCASE: Vom [R-Script](showcase/Showcase_OEGD_Bericht.Rmd) zum [HTML-Bericht](showcase/Showcase_OEGD_Bericht.html) oder [PDF-Bericht](showcase/Showcase_OEGD_Bericht.pdf) (J) 
-* **Block 2:** [SETUP: Installation und Kennenlernen von RStudio]((setup/1_Variabltentypen_und_einfache_operationen.R)) (F)
+* **Block 1:** [SHOWCASE](block01_showcase/): Vom [R-Script](block01_showcase/Showcase_OEGD_Bericht.Rmd) zum [HTML-Bericht](block01_showcase/Showcase_OEGD_Bericht.html) oder [PDF-Bericht](block01_showcase/Showcase_OEGD_Bericht.pdf) (J)
+* **Block 2:** [SETUP: Installation und Kennenlernen von RStudio](block02_rstudio_setup/) (F)
   * Installation von R und RStudio falls noch notwendig
   * Was ist R?
   * Wie ist RStudio aufgebaut?
-* **Block 3:** Basis-Programmierinhalte und AI-Unterstützung (F)
+  * [Skript zum Mitmachen](block02_rstudio_setup/rstudio_kennenlernen.R)
+* **Block 3:** [Basis-Programmierinhalte und AI-Unterstützung](block03_base_r/) (F)
   * Base-R
   * Syntax
-  * Handout
-  * Sich mit AI unterstützen lassen
-* **Block 4:** [Daten einlesen](sehen_nachmachen/1_Daten_lesen_pakete.R) (L)
+  * [Handout](handout/handout_r-kurs.html)
+  * [Sich mit AI unterstützen lassen](block03_base_r/ki_unterstuetzung.md)
+  * [Skript zum Mitmachen](block03_base_r/base_r_grundlagen.R)
+* **Block 4:** [Daten einlesen](block04_daten_einlesen/) (L)
   * Datengrundlage (Excel, CSV, Webseiten)
   * Einlesen mit BaseR
+  * Übliche Probleme: Trennzeichen, Kodierung, Kopfzeilen
+  * Pakete installieren und laden
   * Einlesen rio::import
-  * Einlesen mit AI Unterstützung   
-* **Block 5:** [Daten transformieren](sehen_nachmachen/2_Daten_transformieren.R) (L)
-  * Tidyverse
+  * Einlesen mit AI Unterstützung
+  * [Skript zum Mitmachen](block04_daten_einlesen/1_Daten_lesen_pakete.R)
+* **Block 5:** [Daten transformieren](block05_daten_transformieren/) (L)
+  * Tidyverse und die Pipe
+  * Filter
   * Select
   * Mutate
+  * Summarise
+  * Pivot longer und pivot wider
   * Für Experten: Separate and unite
   * Für Experten: Join
-* **Block 6:** [Grafiken und Tabellen erstellen](sehen_nachmachen/3_Grafiken_Tabellen.R) (F)
+  * [Skript zum Mitmachen](block05_daten_transformieren/2_Daten_transformieren.R)
+* **Block 6:** [Grafiken und Tabellen erstellen](block06_grafiken_tabellen/) (F)
   * Ggplot2
   * GT
+  * [Skript zum Mitmachen](block06_grafiken_tabellen/3_Grafiken_Tabellen.R)
 
 
 __Tag 2__  
 
 * Begrüßung
-* Freies Arbeiten mit R
-* **Block 7:** [Bericht erstellen](sehen_nachmachen/4_Bericht.Rmd) (J)
+* Freies Arbeiten mit R: [eigener Bericht](eigener_bericht/Abwasserwochenbericht_unvollstaendig.Rmd)
+* **Block 7:** [Bericht erstellen](block07_bericht/) (J)
   * Markdown
-  * Quarto 
-* **Block 8:** Github und Opencode (J)
-* **Block 9:** Kartenerstellung (L)
-* **Block 10:** Showcase Arbeiten im AI-Chat und arbeiten mit Claude Code
+  * Quarto
+  * [Datei zum Mitmachen](block07_bericht/4_Bericht.Rmd)
+* **Block 8:** [Github und Opencode](block08_github/) (J)
+* **Block 9:** [Kartenerstellung](block09_karten/) (L)
+* **Block 10:** [Showcase Arbeiten im AI-Chat und arbeiten mit Claude Code](block10_ki_workflow/)
 * Resümee des Kurses und Abschluss
 
 __Nach dem Kurs__
@@ -112,16 +123,37 @@ git clone https://github.com/jakobschumacher/Einfuehrung_R_OEGD.git
 
 
 ## Ordnerstruktur
-Dieses Repository enthält alle notwendigen Datein für den Kurs
+Dieses Repository enthält alle notwendigen Dateien für den Kurs. Für jeden Block
+des Kurses gibt es einen eigenen Ordner. In jedem Blockordner liegt eine
+`README.md` mit den Lernzielen und einer Übersicht der enthaltenen Dateien.
 
-* Ordner __showcase__: Hier ist der Showcase für einen Bericht
-* Ordner __setup__: Hier ist die Einführung in R
-* Ordner __sehen_und_nachmachen__: Hier sind Skripte enthalten, die am Tag 1 verwendet werden
-* Ordner __eigener_bericht__: Hier ist ein möglicher Bericht für den Tag 2
-* Ordner __handout__: Hier ist eine Datei zur Hilfe angelegt
-* Ordner __Beispieldaten__: Hier sind Daten angelgt, die während des Kurses verwendet werden
-  * __Datei INKAR.csv__  Die Datei stammt aus der [Datenbank INKAR](https://www.inkar.de/). Die Datei wurde von BBSR heruntergeladen. BBSR ist an der Erstellung dieses R-Scriptes nicht beteiligt.
-  * __Datei SC2Hospitalisierungen.csv__ Diese Datei stammt vom [Robert Koch-Institut](rki.de).  
+| Ordner | Block | Inhalt |
+|---|---|---|
+| [block01_showcase](block01_showcase/) | 1 | Showcase eines fertigen Berichts |
+| [block02_rstudio_setup](block02_rstudio_setup/) | 2 | Installation und Aufbau von RStudio |
+| [block03_base_r](block03_base_r/) | 3 | Grundlagen der Programmierung mit Base R, AI-Unterstützung |
+| [block04_daten_einlesen](block04_daten_einlesen/) | 4 | Daten einlesen, Pakete installieren |
+| [block05_daten_transformieren](block05_daten_transformieren/) | 5 | Tidyverse, dplyr, tidyr |
+| [block06_grafiken_tabellen](block06_grafiken_tabellen/) | 6 | ggplot2 und gt |
+| [block07_bericht](block07_bericht/) | 7 | R Markdown und Quarto |
+| [block08_github](block08_github/) | 8 | Github und Opencode |
+| [block09_karten](block09_karten/) | 9 | Kartenerstellung mit sf und leaflet |
+| [block10_ki_workflow](block10_ki_workflow/) | 10 | Arbeiten im AI-Chat und mit Claude Code |
+
+Daneben gibt es Ordner, die von mehreren Blöcken genutzt werden:
+
+* Ordner __eigener_bericht__: Eine unvollständige Berichtsvorlage zur Abwassersurveillance für das freie Arbeiten am Tag 2, dazu die vollständige Lösung
+* Ordner __handout__: Eine Übersicht der wichtigsten Inhalte zum Nachschlagen
+* Ordner __img__: Bilder für die Dokumentation
+* Ordner __beispieldaten__: Daten, die während des Kurses verwendet werden
+  * __Dateien csv_datei_*.csv und xlsx_datei.xlsx__ Kleine Übungsdateien für Block 4, jede zeigt ein typisches Problem beim Einlesen
+  * __Datei INKAR.csv__ Die Datei stammt aus der [Datenbank INKAR](https://www.inkar.de/). Die Datei wurde von BBSR heruntergeladen. BBSR ist an der Erstellung dieses R-Scriptes nicht beteiligt.
+  * __Datei SC2Hospitalisierungen.csv__ Diese Datei stammt vom [Robert Koch-Institut](https://www.rki.de).
+  * __Ordner gadm__ Verwaltungsgrenzen von Bundesländern und Landkreisen von [GADM](https://gadm.org/) für die Kartenerstellung
+
+> Wichtig: Öffnen Sie das Kursmaterial immer über die `.Rproj`-Datei im
+> Wurzelverzeichnis. Die R-Skripte lesen die Beispieldaten mit Pfaden wie
+> `beispieldaten/INKAR.csv`, die relativ zum Wurzelverzeichnis gelten.
 
 ## Bildquellen und Credits
 - Logo [Freelogodesign.org](https://www.freelogodesign.org/)  
