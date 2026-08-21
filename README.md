@@ -1,7 +1,7 @@
 
 
 <div id="header" align="center">
-<img src="logo.png">
+<img src=".github/logo.png">
 </div>
 
 # Einführung in R für den ÖGD
@@ -14,38 +14,11 @@ In der Fortbildung erhalten Sie einen Überblick über die Programmiersprache R 
 
 In der Fortbildung erhalten Sie neben einer kurzen Einführung in die Grundlagen der Programmierung mit Base R, eine theoretische und praktische Einführung in die moderne Datenanalyse mit Tidyverse und RMarkdown. Wir folgen im Kurs den Schritten: 1) Daten einlesen, 2) Daten transformieren 3) Tabellen und Grafiken erstellen 4) Bericht erstellen. Diese Schritte werden immer wieder wiederholt: Im Showcase und in der Praxis beim Sehen und Nachmachen am ersten Veranstaltungstag, in den Übungen am zweiten Tag sowie als optionale Lehrwiederholung, die Sie zu Hause im Nachgang durchführen können. Für die praktischen Lerneinheiten können Sie unseren vorbereiteten Lehrdatensatz nutzen oder eigene Daten mitbringen. 
 
-## Voraussetzungen
+## Vor dem Kurs
 
-### 1. R und RStudio installieren
-
-Bitte bringen Sie einen Laptop mit, auf dem beides installiert ist – zuerst R, danach RStudio:
-
-- **R**: über CRAN, <https://cran.r-project.org> → passendes Betriebssystem wählen. Empfohlen ist die jeweils aktuelle Version.
-- **RStudio Desktop** (kostenlose Open-Source-Variante): <https://posit.co/download/rstudio-desktop/>. Empfohlen ist die aktuelle Version.
-
-Die Reihenfolge ist wichtig: RStudio ist nur eine Oberfläche und findet beim ersten Start keine R-Installation, wenn R noch nicht vorhanden ist.
-
-> Sollten Installationen auf Ihrem dienstlichen Rechner nicht möglich sein (fehlende Administrationsrechte, gesperrte Downloads), klären Sie das bitte frühzeitig mit Ihrer IT oder bringen Sie ein privates Laptop mit.
-
-
-### 2. Pakete installieren
-
-Kopieren Sie den folgenden Befehl in die **Console** (diese finden Sie in Rstudio in einem Tab zumeist links unten) und bestätigen Sie mit Enter:
-
-```r
-install.packages(c("tidyverse", "rmarkdown", "knitr", "sf", "pacman",
-                   "gt", "leaflet", "DT", "geodata"))
-```
-
-Hinweise dazu:
-
-- Der Befehl gehört in die Console, **nicht** in ein Skript oder einen R-Markdown-Chunk. Installiert wird einmalig
-- Falls Sie nach einem CRAN-Mirror gefragt werden: einen beliebigen (z. B. Deutschland/Münster) auswählen.
-- Sollte die Frage erscheinen, ob Pakete „from source" kompiliert werden sollen, antworten Sie mit **No** (bzw. `n`). Damit werden fertige Binärpakete installiert, was schneller und weniger fehleranfällig ist.
-  
-> Auf manchen Arbeitsrechnern ist die Installation von bestimmten Paketen nicht möglich, da diese bestimmte Software auf dem Arbeitsrechner voraussetzen. Wenn das der Fall ist lassen Sie diese zur Not weg. 
-
-Melden Sie sich gern bei Fragen zu den notwendigen Installationen – am besten vor dem Kurstermin, damit wir im Kurs direkt starten können.
+Bitte bringen Sie einen Laptop mit installiertem R und RStudio mit und laden
+Sie vorab das Kursmaterial herunter. Die Anleitung dazu steht in
+[VORBEREITUNG.md](VORBEREITUNG.md).
 
 ## Kursplan
 
@@ -62,7 +35,7 @@ Melden Sie sich gern bei Fragen zu den notwendigen Installationen – am besten 
   * Base-R
   * Syntax
   * [Handout](block03_base_r/handout/handout_r-kurs.html)
-  * [Sich mit AI unterstützen lassen](block03_base_r/ki_unterstuetzung.md)
+  * Sich mit AI unterstützen lassen
   * [Skript zum Mitmachen](block03_base_r/base_r_grundlagen.R)
 * **Block 4:** [Daten einlesen](block04_daten_einlesen/) (L)
   * Datengrundlage (Excel, CSV, Webseiten)
@@ -107,41 +80,11 @@ Melden Sie sich gern bei Fragen zu den notwendigen Installationen – am besten 
 * [Buch in deutsch](https://www.produnis.de/R/)
 * [Data specialization als Vertiefung](https://www.coursera.org/specializations/jhu-data-science)
 
-## Benutzung
-
-### Variante 1: Gitrepository als ZIP herunterladen
-![](download.png)
-
-
-### Variante 2: Gitrepository clonen
-
-1. Öffne RStudio
-2. Gehe ins Terminal 
-3. "Klonen des Repositorys"
-```
-git clone https://github.com/jakobschumacher/Einfuehrung_R_OEGD.git
-```
-
-
-
 ## Ordnerstruktur
 
 Dieses Repository enthält alle notwendigen Dateien für den Kurs. Für jeden Block
 des Kurses gibt es einen eigenen Ordner. In jedem Blockordner liegt eine
 `README.md` mit den Zielen des Blocks.
-
-| Ordner | Block | Inhalt |
-|---|---|---|
-| [block01_showcase](block01_showcase/) | 1 | Showcase eines fertigen Berichts |
-| [block02_rstudio_setup](block02_rstudio_setup/) | 2 | Installation und Aufbau von RStudio |
-| [block03_base_r](block03_base_r/) | 3 | Grundlagen der Programmierung mit Base R, AI-Unterstützung |
-| [block04_daten_einlesen](block04_daten_einlesen/) | 4 | Daten einlesen, Pakete installieren |
-| [block05_daten_transformieren](block05_daten_transformieren/) | 5 | Tidyverse, dplyr, tidyr |
-| [block06_grafiken_tabellen](block06_grafiken_tabellen/) | 6 | ggplot2 und gt |
-| [block07_bericht](block07_bericht/) | 7 | R Markdown und Quarto |
-| [block08_github](block08_github/) | 8 | Github und Opencode |
-| [block09_karten](block09_karten/) | 9 | Kartenerstellung mit sf und leaflet |
-| [block10_ki_workflow](block10_ki_workflow/) | 10 | Arbeiten im AI-Chat und mit Claude Code |
 
 Das Material, das nur zu einem Block gehört, liegt in dessen Ordner. Das
 Handout steht in `block03_base_r/handout/`, die Berichtsvorlage für das freie
@@ -153,7 +96,7 @@ mehreren Blöcken vorkommen:
 
 * **Datei INKAR.csv**: Die Datei stammt aus der [Datenbank INKAR](https://www.inkar.de/). Die Datei wurde von BBSR heruntergeladen. BBSR ist an der Erstellung dieses R-Scriptes nicht beteiligt.
 * **Datei SC2Hospitalisierungen.csv**: Diese Datei stammt vom [Robert Koch-Institut](https://www.rki.de).
-* **Ordner gadm**: Verwaltungsgrenzen von Bundesländern und Landkreisen von [GADM](https://gadm.org/) für die Kartenerstellung
+* **Ordner gadm**: Grenzen der Bundesländer von [GADM](https://gadm.org/) für die Kartenerstellung. Kreisgrenzen lassen sich bei Bedarf mit `geodata::gadm(country = "Germany", level = 2)` nachladen
 
 > Wichtig: Öffnen Sie das Kursmaterial immer über die `.Rproj`-Datei im
 > Wurzelverzeichnis. Die R-Skripte lesen ihre Daten mit Pfaden wie

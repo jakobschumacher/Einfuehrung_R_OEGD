@@ -20,7 +20,7 @@ pacman::p_load(ggplot2, ggbump)
 
 <center>
 
-![](../../logo.png)
+![](../../.github/logo.png)
 
 </center>
   
