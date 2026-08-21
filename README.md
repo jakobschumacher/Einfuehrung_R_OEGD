@@ -74,38 +74,11 @@ Sie vorab das Kursmaterial herunter. Die Anleitung dazu steht in
 * **Block 10:** [Showcase Arbeiten im AI-Chat und arbeiten mit Claude Code](block10_ki_workflow/)
 * Resümee des Kurses und Abschluss
 
-## Nach dem Kurs
+## Weiterlernen nach dem Kurs 
 
 * [Handout der wichtigsten Inhalte des Kurses](block03_base_r/handout/handout_r-kurs.html)
-* [Buch in deutsch](https://www.produnis.de/R/)
+* [Buch für R zum Thema Gesundheit in deutsch](https://www.produnis.de/R/)
+* [The Epidemiologist R Handbook](https://epirhandbook.com/en/)
 * [Data specialization als Vertiefung](https://www.coursera.org/specializations/jhu-data-science)
 
-## Ordnerstruktur
 
-Dieses Repository enthält alle notwendigen Dateien für den Kurs. Für jeden Block
-des Kurses gibt es einen eigenen Ordner. In jedem Blockordner liegt eine
-`README.md` mit den Zielen des Blocks.
-
-Das Material, das nur zu einem Block gehört, liegt in dessen Ordner. Das
-Handout steht in `block03_base_r/handout/`, die Berichtsvorlage für das freie
-Arbeiten in `block07_bericht/eigener_bericht/`, und die kleinen Übungsdateien
-zum Einlesen liegen direkt in `block04_daten_einlesen/`.
-
-Daneben gibt es den Ordner `beispieldaten` mit den Datensätzen, die in
-mehreren Blöcken vorkommen:
-
-* **Datei INKAR.csv**: Die Datei stammt aus der [Datenbank INKAR](https://www.inkar.de/). Die Datei wurde von BBSR heruntergeladen. BBSR ist an der Erstellung dieses R-Scriptes nicht beteiligt.
-* **Datei SC2Hospitalisierungen.csv**: Diese Datei stammt vom [Robert Koch-Institut](https://www.rki.de).
-* **Ordner gadm**: Grenzen der Bundesländer von [GADM](https://gadm.org/) für die Kartenerstellung. Kreisgrenzen lassen sich bei Bedarf mit `geodata::gadm(country = "Germany", level = 2)` nachladen
-
-> Wichtig: Öffnen Sie das Kursmaterial immer über die `.Rproj`-Datei im
-> Wurzelverzeichnis. Die R-Skripte lesen ihre Daten mit Pfaden wie
-> `block04_daten_einlesen/csv_datei_semikolon.csv` oder `beispieldaten/INKAR.csv`,
-> die relativ zum Wurzelverzeichnis gelten.
-
-## Bildquellen und Credits
-- Logo [Freelogodesign.org](https://www.freelogodesign.org/)  
-- Hosting [Github.com](https://github.com)  
-- Software R [R-Project.org](https://www.r-project.org/) und RStudio [Posit.com](https://posit.com)  
-- Wichtigste R-Packages [Tidyverse](https://www.tidyverse.org/packages/), [sf](https://r-spatial.github.io/sf/), [pacman](https://github.com/trinker/pacman)
-- Inhalte [Epidemiologist R Handbook](https://epirhandbook.com/en/), [R epidemics consortium](https://www.repidemicsconsortium.org/)
