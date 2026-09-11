@@ -51,38 +51,41 @@ cor(c(3,5,6,23,2,4,5), c(2,5,3,2,3,5,9))
 5 != 5 # ist ungleich
 3 >= 2 # ist größer gleich
 3 <= 2 # ist kleiner gleich
-3 < 2 # ist kleiner als
-3 > 2 # ist größer als
+3 <  2 # ist kleiner als
+3 >  2 # ist größer als
 
 # Das ist wichtig, wenn wir später Daten nach bestimmten Merkmalen "filtern" wollen.
 # Der Vergleich funktioniert auch mit Wörtern/Buchstaben und anderen Datenstrukturen
 "a" == "a" 
 "b" == "B" # Was passiert hier?
 
-# R ist "case-sensitiv". Das bedeutet, dass R zwischen Klein- und Großbuchstaben 
-# unterscheidet. "b" ist demnach nicht das gleiche wie "B".
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # 2 R ist eine Programmiersprache -------------------------------------------
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # Programmierung ist eine eigene Welt für sich.
 # Wichtig zum Verständnis:
-# Das Zeichen "#" ist ein Kommentar
-# Das Zeichen "<-" ist eine Zuweisung zu einer Variablen
-# Das Zeichen "%>%" ist ein Pipe-Parameter und verbindet zwei Dinge miteinander
+# Das Zeichen "#" ist ein Kommentar; Zeichenketten nach einem Hashtag werden nicht "ausgeführt"
+# Das Zeichen "<-" ist eine Zuweisung zu einem Objekt (z. B. Datensatz, Einzelvariablen)
+# Das Zeichen "%>%" ist ein Pipe-Operator und verbindet zwei Operationen miteinander
 # Das Zeichen "," ist ein Zeichen, dass Elemente voneinander trennt. Der Punkt wird in R als Dezimaltrennzeichen verwendet (englische Schreibweise)
 # Die Klammern "()" und "{}" werden an allen möglichen Stellen gebraucht
-# Die Zeichenfolge NA steht für etwas nicht vorhandenes
+# Die Zeichenfolge NA steht für etwas nicht vorhandenes (fehlende Werte)
 
 
-# Mit R können Variablen gesetzt bzw. Objekte erstellt werden
+# Mit R können Variablen gesetzt bzw. Objekte erstellt werden:
+# Objekte können alles mögliche sein, wie z. B. Einzelwerte, eine Einzelvariable (eine An-
+# einanderreihung von Werten) oder ein ganzer Datensatz (bestehend aus mehreren 
+# Variablen)
+
+# Hier werden zwei Objekte angelegt (hier Einzelwerte):
 a <- "Hallo"
 b <- "Welt"
 
 # Schauen wir nun übrigens in das "Environment"-Panel sehen wir, dass dort zwei
 # neue Objekte namens "a" und "b" angelegt wurden
 
-# Wenn man eine Variable mit Strg+Enter aufruft wird sie ausgeführt
+# Wenn man ein Objekt mit Strg+Enter aufruft wird es ausgeführt
 a
 b
 
@@ -110,7 +113,7 @@ names(mtcars) # zeigt die "Namen" also die Variablennamen/Spaltennamen
 # Man kann sich die Daten auch "wie in Excel" anzeigen lassen.
 View(mtcars)
 
-# Weitere Unterschiede zu Excel
+# Weitere Unterschiede zu Excel:
 # Man bearbeitet nicht mit der Maus.
 # Man verwendet keine Zellenbezüge wie z.B. A1:D4
 # Bei R wird davon ausgegangen, dass man sich die Daten im Kopf vorstellt
@@ -190,19 +193,6 @@ mein_vektor <- c(5,7,3,8) # Anlegen des Vektors/Arrays
 mein_vektor # Anzeigen des Vektors
 class(mein_vektor) 
 
-# Wir können auch auf einzelne Werte des Vektors zugreifen. Dies geschieht, indem wir in eckigen Klammern
-# den sogenannten Index, also die Position innerhalb des Vektors angeben
-mein_vektor[1] # gibt uns den ersten Wert aus
-mein_vektor[4] # gibt uns den vierten (letzten) Wert des Vektors aus
-
-# Dies lässt sich auch mit weiteren Funktionen verknüpfen. So wissen wir beispielsweise manchmal
-# nicht die wievielte Position der letzte Wert hat. In diesem Fall können wir beispielsweise die
-# Funktion length() benutzen, die uns die "Länge" einer Datenstruktur ausgibt und somit auch die 
-# Position des letzten Werts
-length(mein_vektor) # gibt uns die Länge des Vektors aus
-mein_vektor[length(mein_vektor)]
-
-
 # Es gibt Datenklassen für eine ganze Tabelle. Diese wird mit der Funktion data.frame() generiert.
 tiertabelle <- data.frame(
   name = c("Hund", "Schlange", "Giraffe"),
@@ -222,7 +212,7 @@ class(tiertabelle$hoehe)
 
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-# 7 Ausführen von Operationen -----------------------------------------------
+# 7 Ausführen von Funktionen ------------------------------------------------
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # Mit Hilfe von eingebauten Funktionen können Rechenoperationen angewendet werden.
 # R hat viele integrierte Funktionen, die genutzt werden können. Viele sind 
