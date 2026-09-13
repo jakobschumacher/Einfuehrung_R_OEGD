@@ -14,7 +14,7 @@
 # 1 R Studio als Entwicklungsumgebung ---------------------------------------
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-# R Studio ist eine sogenannte Enticklungsumgebung. Entwicklungsumgebungen 
+# R Studio ist eine sogenannte Entwicklungsumgebung. Entwicklungsumgebungen 
 # unterstützen den Programmierprozess mit vielen hilfreichen Tools, um die Arbeit 
 # mit Daten und Code zu strukturieren und zu erleichtern. R Studio ist dabei die 
 # Entwicklungsumgebung in der wir das Programmieren mit R strukturieren. R Studio 
@@ -28,9 +28,10 @@
 
 ## Console (unten links)
 # In der Konsole befindet sich unser Taschenrechner R. In der Konsole können wir ähnlich
-# wie im Skriptfenster Code schreiben. Der Unterschied: In der Konsole können wir keine Skripte
-# schreiben -- wir können hier lediglich Code ausführen. Auch der Code den wir im Skriptfenster
-# schreiben, wird in der Konsole verarbeitet und ausgeführt. 
+# wie im Skriptfenster Code schreiben. Der Unterschied: In der Konsole können wir keine wiederverwendbaren
+# Skripte schreiben -- wir können hier lediglich Code ausführen. Auch der Code den wir im Skriptfenster
+# schreiben, wird in der Konsole verarbeitet und ausgeführt. Die Konsole ist quasi das eigentliche Verarbeitungs-
+# zentrum für unsere Analysen. Dort läuft die Software R.
 
 ## Environment/Umgebung (oben rechts)
 # Die Umgebung zeigt uns an, welche Objekte wir aktuell geladen/zwischengespeichert haben. Die 

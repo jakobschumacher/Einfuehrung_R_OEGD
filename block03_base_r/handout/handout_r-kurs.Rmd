@@ -5,7 +5,6 @@ date: "`r format(Sys.Date(), '%d. %B %Y')`"
 output:
   html_document:
     toc: yes
-    df_print: paged
   pdf_document:
     toc: yes
 subtitle: Vom ÖGD für den ÖGD
@@ -15,7 +14,7 @@ urlcolor: blue
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
 
-pacman::p_load(ggplot2, ggbump)
+pacman::p_load(ggplot2, dplyr)
 ```
 
 <center>
@@ -32,19 +31,28 @@ In der Fortbildung haben wir Ihnen einen ersten Einblick in die Programmiersprac
 
 Der Start mit R kann mitunter sehr holprig wahrgenommen werden und wirkt im ersten Moment oft überfordernd, was für einige frustrierend sein kann. R zu nutzen bedeutet stetiges Lernen und Sie werden schnell merken, dass Sie nach dem Erlernen der Basics einen steilen Anstieg in der Lernkurve erfahren werden.
 
-```{r learning progress, dpi=300, fig.align='center', fig.dim = c(4, 4)}
-df <- data.frame(x = 1:6,
-       y = 5:10)
+```{r learning progress, dpi=300, fig.align='center', fig.dim = c(4, 4), warning=FALSE}
+# Daten für eine typische S-Kurve (logistische Funktion)
+lernkurve <- tibble(
+  tage = seq(1, 100, length.out = 100),
+  fortschritt = (100 / (1 + exp(-0.08 * (tage - 50)))) # Logistische Funktion
+)
 
-ggplot(df, aes(x = min(df$x), xend = max(df$x), y = min(df$y), yend = max(df$y))) +
-  geom_sigmoid(size=2) +
-  coord_cartesian(xlim = c(2,6)) +
-  theme_classic() +
-  labs(x="Zeit", y="Lernfortschritt", title = "Lernfortschritt über die Zeit") +
+ggplot(lernkurve, aes(x = tage, y = fortschritt)) +
+  geom_line(color = "#1f77b4", size = 1.2) +
+  geom_area(alpha = 0.2, fill = "#1f77b4") +
+  labs(
+    title = "Typische Lernkurve beim Lernen von R",
+    x = "Zeit",
+    y = "Fortschritt / Verständnis",
+  ) +
+  scale_y_continuous(labels = NULL) +
+  theme_minimal() +
   theme(
-    axis.text = element_blank(),
-    axis.ticks = element_blank(),
-    axis.title = element_text(face = "bold", size = 15)
+    plot.title = element_text(face = "bold", size = 10),
+    panel.grid.minor = element_blank(),
+    axis.text.x = element_blank(),  # Vereinfacht
+    axis.title = element_text(size = 8)
   ) 
 ```
 
@@ -92,6 +100,16 @@ Cheatsheets sind kurze übersichtliche Darstellungen von packages und deren grun
 
 ## Weitere Ressourcen
 
+### Künstliche Intelligenz
+Sprachmodelle wie ChatGPT, Claude oder GitHub Copilot können beim Lernen von R und bei der praktischen Arbeit hilfreich sein. Sie können Ihnen bei häufigen Fragen helfen – zum Beispiel: „Wie lade ich eine CSV-Datei in R ein?" oder „Wie nutze ich `dplyr` zum Filtern von Daten?" – und sind oft schneller als Google. Sie können auch dabei helfen, Fehlermeldungen zu verstehen und zu beheben.
+
+**Aber: KI hat klare Grenzen.** Diese Modelle funktionieren am besten bei etabliertem, gut dokumentiertem Wissen. Je häufiger etwas in Fachliteratur, Dokumentation und Online-Communities diskutiert wurde, desto besser kennt die KI es. Bei neueren Methoden, speziellen Packages oder gerade veröffentlichten Updates kann die KI veraltet, unpräzise oder einfach falsch sein – ohne dass es auf den ersten Blick offensichtlich ist.
+
+**Deshalb:** Nutzen Sie KI als Lernhilfe und Schnellreferenz, nicht als einzige Quelle. Verifizieren Sie wichtige Antworten mit Ihrem eigenen Fachwissen, mit der offiziellen Dokumentation oder mit etablierten Ressourcen wie dem [Epidemiologist R Handbook](https://epirhandbook.com/en/) oder [R for Data Science](https://r4ds.hadley.nz/). Auch wenn die Antworten von KI immer gut und überzeugend klingen, bleiben Sie kritisch.
+
+### Google
+R ist eine Open-source software. Zusammen mit der vielfältigen Funktionalität von R hat das zur Folge, dass es eine große Community gibt, die sich mit R und dessen problemorientierten Weiterentwicklung beschäftigt. Die Community ist mittlerweile so groß, dass es fast zu allen Problemstellungen Lösungsansätze im Internet gibt. Wenn Sie nicht weiterkommen ist daher der erste Schritt oft das einfach "googeln". Dabei finden Sie in der Regel häufig Forendiskussionen oder Dokumentationen, die mit Ihrem Problem zutun haben und die Ihnen dabei helfen Ihr Problem zu lösen. Sie haben bereits im Kurs die Erfahrung gemacht häufig auf Fehlermeldungen zu stoßen. Können Sie mit den teils kryptischen Meldungen nichts anfangen, zögern Sie nicht und kopieren Sie diese zu Google und Sie werden Ihr Problem häufig lösen können.
+
 ### Google
 R ist eine Open-source software. Zusammen mit der vielfältigen Funktionalität von R hat das zur Folge, dass es eine große Community gibt, die sich mit R und dessen problemorientierten Weiterentwicklung beschäftigt. Die Community ist mittlerweile so groß, dass es fast zu allen Problemstellungen Lösungsansätze im Internet gibt. Wenn Sie nicht weiterkommen ist daher der erste Schritt oft das einfach "googeln". Dabei finden Sie in der Regel häufig Forendiskussionen oder Dokumentationen, die mit Ihrem Problem zutun haben und die Ihnen dabei helfen Ihr Problem zu lösen. Sie haben bereits im Kurs die Erfahrung gemacht häufig auf Fehlermeldungen zu stoßen. Können Sie mit den teils kryptischen Meldungen nichts anfangen, zögern Sie nicht und kopieren Sie diese zu Google und Sie werden Ihr Problem häufig lösen können.
 
@@ -100,8 +118,5 @@ Wenn nicht schon geschehen, werden Sie beim Googeln häufig auf die Seite [Stack
 
 ### Youtube
 Wie gesagt, die Community ist groß und dementsprechend gibt es zahlreiche Nutzerinnen und Nutzer von R, die ihre Kenntnisse in Tutorials und kostenlosen Einführungskursen auf Youtube stellen. Das hat den Vorteil, dass Sie aktiv folgen und mitarbeiten können.
-
-### ChatGPT
-Mit ChatGPT [chat.openai.com](https://chat.openai.com) können einfache Codeschnipsel erstellt werden. Auch für die Analyse von Fehlermeldungen ist es sehr hilfreich. 
 
 
