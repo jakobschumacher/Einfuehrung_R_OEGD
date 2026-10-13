@@ -23,12 +23,27 @@ print(daten_csv_base)
 
 
 #  Datei mit dem Semikolon-Problem einlesen
+semikolon_daten <- read.csv("block04_daten_einlesen/csv_datei_semikolon.csv")
+# Wie viele Spalten hat der eingelesene Datensatz? Was ist das Problem?
+print(semikolon_daten)
+
+# Wie könnte man es lösen?
+?read.csv
+
 # Wir verwenden das `sep`-Argument, um das Semikolon als Trennzeichen anzugeben
 semikolon_daten <- read.csv("block04_daten_einlesen/csv_datei_semikolon.csv", sep = ";")
 print(semikolon_daten)
 
+semikolon_daten_alternativ <- read.csv2("block04_daten_einlesen/csv_datei_semikolon.csv")
+print(semikolon_daten_alternativ)
+
 # Datei mit Umlautproblemen einlesen
 # Für dieses Beispiel nehmen wir an, dass die Datei in UTF-8 gespeichert wurde.
+umlaut_daten <- read.csv("block04_daten_einlesen/csv_datei_kodierung_utf8.csv")
+print(umlaut_daten)
+# Fällt Ihnen etwas auf? Wie könnte man das Problem lösen?
+?read.csv
+
 # Das `fileEncoding`-Argument gibt die Kodierung der Datei an
 umlaut_daten <- read.csv("block04_daten_einlesen/csv_datei_kodierung_utf8.csv", fileEncoding = "UTF-8")
 print(umlaut_daten)
@@ -38,32 +53,33 @@ umlaut_daten <- read.csv("block04_daten_einlesen/csv_datei_kodierung_ascii.csv",
 print(umlaut_daten)
 
 # Datei mit den Kommentarzeilen einlesen
+kommentar_daten <- read.csv("block04_daten_einlesen/csv_datei_kopfzeilen.csv")
+
+# Gibt es ein Argument mit dem man das Problem lösen könnte?
+?read.csv
+
 # Das `skip`-Argument gibt an, wie viele Zeilen am Anfang der Datei übersprungen werden sollen
 kommentar_daten <- read.csv("block04_daten_einlesen/csv_datei_kopfzeilen.csv", skip = 2)
 print(kommentar_daten)
-
-
 
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # 3 Installation von Paketen ---------------------
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-# In R gibt es den R-Kern: base-r. Dazu gibt es tausende von weiteren Pakete. Irgendwelche user schreiben ein solches Paket und laden sie auf eine Internetdatenbank hoch. Vor dort können die Pakete installiert werden.
+# In R gibt es den R-Kern: base-r. Dazu gibt es tausende von weiteren Paketen. User auf der ganzen Welt schreiben ein solches Paket und laden sie auf eine Internetdatenbank hoch. Von dort können die Pakete installiert werden.
 
 # Eine Installation geht mit dem Befehl install.packages()
 # install.packages("tidyverse") # Installation des Paketes "tidyverse"
 
-# Hinweis: Für manche Pakete benötigt man spezielle libraries, die auf dem Computer installiert sind. Das ist häufig bei Arbeitsrechner nicht der Fall. Es kann also möglich sein, dass Pakete nicht installiert werden können.
+# Hinweis: Für manche Pakete benötigt man spezielle libraries, die auf dem Computer installiert sind. Das ist häufig bei Arbeitsrechnern nicht der Fall. Es kann also möglich sein, dass Pakete nicht installiert werden können.
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # 4 Laden von Paketen ---------------------
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-# Die Pakete müssen üblicherweise geladen werden bevor man sie benutzt. Wenn man R startet lädt R nämlich nur sich selber und nicht alle Pakete, die installiert sind. Das ist am Anfang nicht ganz leicht verständlich
+# Die Pakete müssen üblicherweise geladen werden bevor man sie benutzt. Wenn man R startet lädt R nämlich nur sich selber und nicht alle Pakete, die installiert sind. Das ist am Anfang nicht ganz leicht verständlich.
 library(tidyverse)
-
-
 
 
 # Pro Tip: man kann Pakete auch installieren/laden in einem Befehl.

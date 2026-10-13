@@ -15,20 +15,30 @@
 library(tidyverse) # Paket laden
 
 
-# Wir erstellen Beispieldaten (in einem tibble).
+# Wir erstellen Beispieldaten (in einem tibble und in einem Vektor).
 data <- tibble(
-  Name = c("Anna", "Ben", "Celine", "Daniel", "Eva"),
-  Alter = c(23, 25, 24, 22, 26),
-  Lieblingszahl = c(50000, 3249, 29000000, 5000, 7)
+  Name = c("Anna", "Ben", "Celine", "Daniel", "Eva", "Adam"),
+  Alter = c(23, 25, 24, 22, 27, 25),
+  Lieblingszahl = c(50000, 3249, 29000000, 5000, 7, 999)
 )
 
 # Beispieldaten
 print(data)
 
+
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # 2 Funktionsprinzip der "Chain" mit %>% oder  ---------------------
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-# Die Pakete aus Tidyverse arbeiten mit der natürlichen Herangehensweise. Zuerst nehme die Daten, dann filter diesen Teil raus, dann mache jenes usw. Dieses Vorgehen ist möglich mit dem Pipe-Symbol %>%, das mehrere Befehle aneinanderreiht.
+# Wenn man mehrere Bearbeitungsschritte hintereinander ausführen möchte, kann das schnell umständlich werden:
+
+# Wir wollen das Durchschnittsalter berechnen
+mean(data$Alter)
+# Wir wollen das Durchschnittsalter auf eine Nachkommastelle runden
+round(mean(data$Alter), digits = 1)
+# Wir wollen das Ergebnis in einem Satz ausgeben
+paste("Durchschnittsalter", round(mean(data$Alter), digits = 1), "Jahre")
+
+# Die Pakete aus Tidyverse arbeiten mit einer intuitiven Herangehensweise. R verarbeitet den Code entsprechend des Schemas: "Zuerst nimm die Daten, dann filtere diesen Teil raus, dann mache jenes usw." Dieses Vorgehen ist möglich mit dem Pipe-Symbol %>%, das mehrere Befehle aneinanderreiht. Das Pipe-Symbol kann z.B. mit Strg+shift+M erzeugt werden.
 
 # Detaillierte Infos siehe: https://www.produnis.de/R/rbase-pipe.html
 
@@ -43,6 +53,11 @@ data %>%
   mutate(gealterte_Lieblingszahl = Lieblingszahl * Alter) %>%
   summarise(mean = mean(gealterte_Lieblingszahl))
 
+# Oder für unser Beispiel mit dem Durchschnittsalter der Patient:innen
+data$Alter %>%
+  mean() %>%
+  round(digits = 1) %>%
+  paste("Durchschnittsalter", ., "Jahre")
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # 3 Die Funktion Filtern  ---------------------
@@ -92,9 +107,9 @@ data %>%
 #
 # 2. Jede Beobachtung bildet eine Zeile. Jede Zeile sollte eine eindeutige Beobachtung oder Einheit repräsentieren, z. B. eine Person, einen Zeitpunkt oder einen Messwert.
 #
-# 3. Jede Art von Beobachtungseinheit bildet eine Tabelle. Wenn Sie beispielsweise Daten über Schulen und Schüler haben, sollten zwei Tabellen angelegt werden. Eine für Schüler und eine für Schulen. Bei den Schülern wäre dann eine Verknüpfung mit dabei (z. B. eine Schul-ID).
+# 3. Jede Art von Beobachtungseinheit bildet eine Tabelle. Wenn Sie beispielsweise Daten über Schulen und Schüler haben, sollten zwei Tabellen angelegt werden. Eine für Schüler und eine für Schulen. Bei den Schülern wäre dann eine Verknüpfung mit dabei (z. B. eine Schul-ID) und bei den Schulen vielleicht eine Variable, welche die Gesamtschülerzahl angbit.
 
-# Es kann sehr schwierig sein Daten umzuwandeln. Das Paket Tidyr aus dem Tidyverse hilft dabei
+# Es kann sehr schwierig sein Daten in "Tidy Data" umzuwandeln. Das Paket Tidyr aus dem Tidyverse hilft dabei.
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # 8 Pivot long and pivot wide ----------------------------
@@ -178,14 +193,18 @@ df1 <- tibble(
   ID = c(1, 2, 3, 4),
   Name = c("Anna", "Ben", "Chris", "Dana")
 )
+print(df1)
 
 df2 <- tibble(
   ID = c(3, 4, 5, 6),
   Alter = c(25, 28, 22, 24)
 )
+print(df2)
 
 # Füge beide Datensätze mit der Funktion left_join zusammen
 df1 %>% left_join(df2, by = "ID")
+
+df2 %>%  left_join(df1, by = "ID")
 
 # Man kann auch andere "joins" verwenden, z.B. full_join
 df1 %>% full_join(df2, by = "ID")
